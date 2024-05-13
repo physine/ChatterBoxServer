@@ -1,6 +1,8 @@
 package physine.repositories
 
 import physine.dtos.UserDTO
+import physine.models.UserModel
+import java.util.*
 
 class UserRepository() {
 
@@ -10,6 +12,10 @@ class UserRepository() {
 
     fun findById(){
 
+    }
+
+    fun findByUsername(username: String): UserModel {
+        return UserModel("uname","pw", UUID.randomUUID())
     }
 
     fun findAll(){

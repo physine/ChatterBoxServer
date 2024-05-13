@@ -1,10 +1,12 @@
-package physine.api
+package physine.routing.routes
 
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import org.koin.ktor.ext.inject
 import physine.dtos.UserDTO
 import physine.services.UserService
@@ -22,11 +24,9 @@ fun Application.configureUserRoutes() {
         // create user
         post("/user") {
             println("HTTP - POST - /user")
-            val user = call.receive<UserDTO>()
-            println("user: ${user.username} ${user.password}")
-            userService.createUser(user)
-
-            call.respondText("ok")
+            val userDTO = call.receive<UserDTO>()
+            val response = userService.createUser(userDTO)
+            call.respondText(Json.encodeToString(response), ContentType.Application.Json)
         }
 
         // update user (only the password, not the username)

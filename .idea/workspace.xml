@@ -5,35 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a8178c-35ac-40f8-9588-51d919c37f80" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/frosty.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/api/UserRoutes.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/chatterBoxApi/ChatterBox.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/chatterBoxApi/IChatterBox.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/config/configureKtor.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/config/configureSerialization.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dtos/UserDTO.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/kion/Modules.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/models/User.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/repositories/UserRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/security/disc/DataEncryption.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/security/tls/LetsEncrypt.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/security/tls/OpenSSL.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/services/UserService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/config/configureJwtValidation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/config/configureKtor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/config/configureKtor.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +139,7 @@
       <workItem from="1715023473394" duration="1669000" />
       <workItem from="1715048784921" duration="2555000" />
       <workItem from="1715051349347" duration="10625000" />
-      <workItem from="1715376394260" duration="11717000" />
+      <workItem from="1715376394260" duration="13557000" />
     </task>
     <servers />
   </component>

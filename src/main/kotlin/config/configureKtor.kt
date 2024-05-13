@@ -1,16 +1,10 @@
 package physine.config
 
-import io.ktor.server.engine.*
-import io.ktor.server.netty.*
-import physine.api.configureUserRoutes
+import io.ktor.server.application.*
+import physine.routing.routes.configureUserRoutes
 
-fun configureKtor() {
-    println("Starting up Netty")
-    embeddedServer(Netty, port = 8080) {
-        println("Configuring Routes")
-        configureUserRoutes()
-        println("Configuring Serialization")
-        configureSerialization()
-        println("-------- Configuring Complete --------")
-    }.start(wait = true)
+fun Application.module() {
+    configureUserRoutes()
+    configureSerialization()
+//    configureJwtValidation()
 }
