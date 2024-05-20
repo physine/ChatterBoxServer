@@ -2,13 +2,14 @@ package physine.routing.routes
 
 import io.ktor.http.*
 import io.ktor.server.application.*
+import io.ktor.server.auth.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 import org.koin.ktor.ext.inject
 import physine.dtos.UserDTO
+import physine.routing.json
 import physine.services.UserService
 
 fun Application.configureUserRoutes() {
@@ -18,7 +19,7 @@ fun Application.configureUserRoutes() {
         get("/user") {
             println("\nHTTP - GET - /user\n")
             userService.getUser()
-//            call.respondText("GET Request - Endpoint: \"$ROOT\"", ContentType.Text.Plain)
+            call.respondText("GET Request - Endpoint: /user - Not protected", ContentType.Text.Plain)
         }
 
         // create user
@@ -26,14 +27,17 @@ fun Application.configureUserRoutes() {
             println("HTTP - POST - /user")
             val userDTO = call.receive<UserDTO>()
             val response = userService.createUser(userDTO)
-            call.respondText(Json.encodeToString(response), ContentType.Application.Json)
+            call.respondText(json.encodeToString(response), ContentType.Application.Json)
         }
 
-        // update user (only the password, not the username)
-        put("/user/{id}") {  // Update might need to be more specific like "/user/update/{id}"
-            userService.updateUser()  // Assuming updateUser method exists and needs request data
-            val updateData = call.receiveText()
-            call.respondText("Received POST: $updateData", ContentType.Text.Plain)
+        authenticate("auth-jwt") {
+            // update user (only the password, not the username)
+            put("/user") {  // Update might need to be more specific like "/user/update/{id}"
+                println("HTTP - PUT - /user")
+//                userService.updateUser()  // Assuming updateUser method exists and needs request data
+//                val updateData = call.receiveText()
+                call.respondText("Received POST: access granted", ContentType.Text.Plain)
+            }
         }
 
         // delete user

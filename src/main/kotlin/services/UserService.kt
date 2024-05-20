@@ -1,15 +1,16 @@
 package physine.services
 
 import physine.dtos.UserDTO
+import physine.models.responces.Response
+import physine.models.responces.UserResponses
 import physine.repositories.UserRepository
-import physine.routing.responces.Response
-import physine.routing.responces.UserResponses
 import physine.services.jwt.JWTService
 import physine.utils.CredentialValidation
 
 class UserService(
     private val userRepository: UserRepository,
-    private val jwtService: JWTService){
+    private val jwtService: JWTService
+){
 
     fun getUser(){
         println("Service - UserService - getUser")
@@ -22,15 +23,12 @@ class UserService(
         }
 
         if(!CredentialValidation.checkUsernameAvailability(userDTO.username)){
+            return UserResponses.usernameUnavailable()
         }
 
         userRepository.create(userDTO)
-
-        // log user in automatically (meaning return a jwt)
         val user = userRepository.findByUsername(userDTO.username)
-
         val token = jwtService.generateToken(user)
-
         return UserResponses.userCreationSuccessful(token)
     }
 

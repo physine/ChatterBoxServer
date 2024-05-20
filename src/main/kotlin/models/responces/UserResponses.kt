@@ -1,4 +1,4 @@
-package physine.routing.responces
+package physine.models.responces
 
 import kotlinx.serialization.Serializable
 
@@ -7,7 +7,7 @@ object UserResponses {
 
     fun userCreationSuccessful(token: String): Response {
         return Response(
-            message = "Account Creation Successful.",
+            message = "Account Creation Successful. Logged In.",
             jwt = token)
     }
 
@@ -16,6 +16,10 @@ object UserResponses {
     }
 
     fun logInNotSuccessful(): Response {
-        return Response(message = "Login Not Successful. Username or password is wrong.")
+        return Response(message = "Login Not Successful. Username and/or password is wrong.")
+    }
+
+    fun usernameUnavailable(): Response {
+        return Response(message = "Username Not Available.")
     }
 }

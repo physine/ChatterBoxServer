@@ -1,4 +1,4 @@
-package physine.routing.responces
+package physine.models.responces
 
 import kotlinx.serialization.Serializable
 
