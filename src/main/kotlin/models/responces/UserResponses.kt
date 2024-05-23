@@ -11,8 +11,10 @@ object UserResponses {
             jwt = token)
     }
 
-    fun logInSuccessful(): Response {
-        return Response(message = "Login Successful.")
+    fun logInSuccessful(token: String): Response {
+        return Response(
+            message = "Login Successful.",
+            jwt = token)
     }
 
     fun logInNotSuccessful(): Response {

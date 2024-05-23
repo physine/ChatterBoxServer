@@ -30,7 +30,8 @@ fun Application.configureJwtValidation() {
             }
 
             challenge { defaultScheme, realm ->
-                call.respond(HttpStatusCode.Unauthorized, "Token is not valid or has expired")
+                call.respond(HttpStatusCode.Unauthorized,
+                    "GET OFF MY LAWN! Come Back When You Have A Valid Token")
             }
         }
     }

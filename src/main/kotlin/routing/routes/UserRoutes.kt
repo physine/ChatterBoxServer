@@ -16,13 +16,6 @@ fun Application.configureUserRoutes() {
     val userService: UserService by inject()
 
     routing {
-        get("/user") {
-            println("\nHTTP - GET - /user\n")
-            userService.getUser()
-            call.respondText("GET Request - Endpoint: /user - Not protected", ContentType.Text.Plain)
-        }
-
-        // create user
         post("/user") {
             println("HTTP - POST - /user")
             val userDTO = call.receive<UserDTO>()
@@ -38,14 +31,14 @@ fun Application.configureUserRoutes() {
 //                val updateData = call.receiveText()
                 call.respondText("Received POST: access granted", ContentType.Text.Plain)
             }
-        }
 
-        // delete user
-        delete("/user/{id}") {
-            val userId = call.parameters["id"] ?:
-                    return@delete call.respond(HttpStatusCode.BadRequest, "Invalid ID")
-//                userService.deleteUser(userId)
-            call.respondText("User $userId deleted", ContentType.Text.Plain)
+            // delete user
+            delete("/user/{id}") {
+                val userId = call.parameters["id"] ?:
+                        return@delete call.respond(HttpStatusCode.BadRequest, "Invalid ID")
+    //                userService.deleteUser(userId)
+                call.respondText("User $userId deleted", ContentType.Text.Plain)
+            }
         }
     }
 }

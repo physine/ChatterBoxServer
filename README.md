@@ -22,3 +22,10 @@ To get started with this project, follow the steps below:
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/physine/ChatterBoxServer.git
+   
+***
+
+TODO:
+- [ ] finish the user controller (JWTPrincipal where needed), service, and repo  
+- [ ] make a db with an orm (may require docker to work on any pc)
+- [ ] set up the websockets
