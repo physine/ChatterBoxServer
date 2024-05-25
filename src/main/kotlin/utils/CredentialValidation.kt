@@ -1,23 +1,24 @@
 package physine.utils
 
-import physine.dtos.UserDTO
+import physine.dtos.CreateUserDTO
 
 object CredentialValidation {
 
     private const val MAXIMUM_USERNAME_LENGTH = 16
     private const val MINIMUM_PASSWORD_LENGTH = 3
 
-    fun verifyUserCredentialFormats(user: UserDTO): Boolean {
+    fun verifyUserCredentialFormats(username: String, password: String): Boolean {
         return true
     }
 
-    fun checkUsernameAvailability(username: String): Boolean {
+    fun isUsernameAvailable(createUserDTO: CreateUserDTO): Boolean {
         // todo make call to user repo
         return true
     }
 
-    fun validate(userDTO: UserDTO): Boolean {
-        return validateUsername(userDTO.username) && validatePassword(userDTO.password)
+    fun validate(username: String, password: String): Boolean {
+        return validateUsername(username) &&
+                validatePassword(password)
     }
 
     private fun validateUsername(username: String): Boolean {

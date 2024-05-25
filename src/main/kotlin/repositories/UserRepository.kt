@@ -1,13 +1,14 @@
 package physine.repositories
 
-import physine.dtos.UserDTO
+import physine.dtos.CreateUserDTO
 import physine.models.UserModel
+import java.util.*
 
 interface UserRepository {
-    fun create(user: UserDTO): Unit
-    fun findById(userDTO: UserDTO)
-    fun findByUsername(username: String): UserModel
+    fun create(createUserDTO: CreateUserDTO): Unit
+//    fun findById(uuid: UUID)
+    fun findByUsername(username: String): UserModel?
     fun findAll()
     fun update()
-    fun delete()
+    fun delete(uuid: UUID)
 }

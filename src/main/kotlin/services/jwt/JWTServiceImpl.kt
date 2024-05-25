@@ -14,13 +14,13 @@ class JWTServiceImpl(private val config: HoconApplicationConfig): JWTService {
     private val secret = config.property("jwt.secret").getString()
     override val realm = config.property("jwt.realm").getString()
 
-    override fun generateToken(user: UserModel): String {
+    override fun generateToken(userModel: UserModel): String {
         val expiration = Date(System.currentTimeMillis() + 6000000)
         val token = JWT.create()
             .withAudience(audience)
             .withIssuer(issuer)
-            .withClaim("username", user.username)
-            .withClaim("uuid", user.uuid.toString())
+            .withClaim("username", userModel.username)
+            .withClaim("uuid", userModel.uuid.toString())
             .withExpiresAt(expiration)
             .sign(Algorithm.HMAC256(secret))
         return token
