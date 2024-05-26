@@ -10,7 +10,7 @@ import java.util.*
 interface UserService {
     fun create(createUserDTO: CreateUserDTO): Response
     fun login(loginDTO: LoginDTO): Response
-    fun changePassword(changePasswordDTO: ChangePasswordDTO): Unit
-    fun delete(uuid: UUID): Unit
+    fun changePassword(changePasswordDTO: ChangePasswordDTO): Response
+    fun delete(uuid: UUID): Response
     fun getUserInfo(username: String): UserModel?
 }

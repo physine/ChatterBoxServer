@@ -1,34 +1,40 @@
 package physine.repositories
 
-import physine.db.DB
-import physine.dtos.CreateUserDTO
+import org.jetbrains.exposed.sql.insert
+import org.jetbrains.exposed.sql.transactions.transaction
+import physine.db.UserTable
 import physine.models.UserModel
 import java.util.*
 
-class UserRepositoryImpl(private val db: DB): UserRepository {
-
-    override fun create(createUserDTO: CreateUserDTO){
-        val userModel = UserModel(createUserDTO.username, createUserDTO.password, UUID.randomUUID())
-        db.save(userModel)
+class UserRepositoryImpl(): UserRepository {
+    override fun createUser(user: UserModel): UserModel {
+        println("[i] Starting transaction $this")
+        transaction {
+            println("[i] Starting insert $this")
+            UserTable.insert {
+                it[id] = user.uuid
+                it[username] = user.username
+                it[password] = user.password
+                println("[i] Complete insert $this")
+            }
+        }
+        println("[i] Complete transaction $this")
+        return user
     }
 
-//    override fun findById(uuid: UUID): UserModel? {
-//        return db.getById(uuid)
-//    }
-
-    override fun findByUsername(username: String): UserModel? {
-        return db.findByUsername(username)
+    override fun getUserById(userId: UUID): UserModel? {
+        TODO("Not yet implemented")
     }
 
-    override fun findAll() {
-
+    override fun getUserByUsername(username: String): UserModel? {
+        TODO("Not yet implemented")
     }
 
-    override fun update() {
-
+    override fun updateUser(user: UserModel): Boolean {
+        TODO("Not yet implemented")
     }
 
-    override fun delete(uuid: UUID) {
+    override fun deleteUser(userId: UUID): Boolean {
         TODO("Not yet implemented")
     }
 }

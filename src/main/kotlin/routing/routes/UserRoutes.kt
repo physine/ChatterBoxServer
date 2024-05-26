@@ -15,7 +15,6 @@ import physine.dtos.InfoDTO
 import physine.dtos.LoginRequest
 import physine.routing.json
 import physine.services.UserService
-import physine.utils.toDTO
 import java.util.*
 
 fun Application.configureUserRoutes() {
@@ -25,25 +24,25 @@ fun Application.configureUserRoutes() {
 
         get("/debug/user"){
             val infoDTO = call.receive<InfoDTO>()
-            call.respondText(userService.getUserInfo(infoDTO.username).toString())
+            return@get call.respondText(userService.getUserInfo(infoDTO.username).toString())
         }
 
-        // create user
+        // create user - ok
         post("/user") {
             println("[i] POST Request /user")
             val createUserRequest = call.receive<CreateUserRequest>()
             val createUserDTO = createUserRequest.toDTO()
             val response = userService.create(createUserDTO)
-            call.respondText(json.encodeToString(response), ContentType.Application.Json)
+            return@post call.respondText(json.encodeToString(response), ContentType.Application.Json)
         }
 
-        // login
+        // login - ok
         post("/user/login") {
             println("[i] POST Request /user/login")
             val loginRequest = call.receive<LoginRequest>()
             val loginDTO = loginRequest.toDTO()
             val response = userService.login(loginDTO)
-            call.respondText(json.encodeToString(response), ContentType.Application.Json)
+            return@post call.respondText(json.encodeToString(response), ContentType.Application.Json)
         }
 
         authenticate("auth-jwt") {

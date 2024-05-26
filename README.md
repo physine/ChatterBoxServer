@@ -26,6 +26,7 @@ To get started with this project, follow the steps below:
 ***
 
 TODO:
-- [ ] finish the user controller (JWTPrincipal where needed), service, and repo  
 - [ ] make a db with an orm (may require docker to work on any pc)
 - [ ] set up the websockets
+- [ ] remove jwt from Response as not a responses has a jwt field
+- [x] finish the user controller (JWTPrincipal where needed), service, and repo

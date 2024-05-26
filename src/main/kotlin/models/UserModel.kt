@@ -3,5 +3,5 @@ package physine.models
 import java.util.*
 
 data class UserModel(val username: String,
-                     val passwordHash: String,
+                     var password: String,
                      val uuid: UUID)

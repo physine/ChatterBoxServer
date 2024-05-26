@@ -5,7 +5,7 @@ import physine.dtos.CreateUserDTO
 object CredentialValidation {
 
     private const val MAXIMUM_USERNAME_LENGTH = 16
-    private const val MINIMUM_PASSWORD_LENGTH = 3
+    private const val MINIMUM_PASSWORD_LENGTH = 1
 
     fun verifyUserCredentialFormats(username: String, password: String): Boolean {
         return true
@@ -17,12 +17,11 @@ object CredentialValidation {
     }
 
     fun validate(username: String, password: String): Boolean {
-        return validateUsername(username) &&
-                validatePassword(password)
+        return validateUsername(username) && validatePassword(password)
     }
 
     private fun validateUsername(username: String): Boolean {
-        return username.isNotBlank() && username.length < MAXIMUM_USERNAME_LENGTH
+        return username.isNotBlank() && (username.length < MAXIMUM_USERNAME_LENGTH)
     }
 
     private fun validatePassword(password: String): Boolean {

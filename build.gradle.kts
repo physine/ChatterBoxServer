@@ -13,6 +13,9 @@ repositories {
 val ktorVersion = "2.3.10"
 val koinVersion = "3.5.6"
 val log4j2Version = "2.23.1"
+val exposedVersion = "0.50.1"
+val postgresql = "42.7.3"
+val config = "1.4.3"
 
 dependencies {
     testImplementation(kotlin("test"))
@@ -27,11 +30,19 @@ dependencies {
     implementation("io.ktor:ktor-server-auth-jwt:$ktorVersion")
     implementation("io.ktor:ktor-serialization:$ktorVersion")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
-
     implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
 
     implementation("io.insert-koin:koin-core:$koinVersion")
     implementation("io.insert-koin:koin-ktor:$koinVersion")
+
+    implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-dao:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-java-time:$exposedVersion")
+
+    implementation("org.postgresql:postgresql:$postgresql")
+
+    implementation("com.typesafe:config:$config")
 }
 
 tasks.test {
