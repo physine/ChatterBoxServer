@@ -1,4 +1,4 @@
-# CLI Messaging Application Server
+# Chat Server
 
 ## Overview
 This project is a web server built with Kotlin using the Ktor framework. It is designed to support a CLI messaging application, with potential future enhancements to include more functionalities, such as 2p2 messaging and file transfer. 
