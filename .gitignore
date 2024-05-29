@@ -5,7 +5,7 @@ build/
 !**/src/test/**/build/
 
 ### Docker Database Data for development
-postgres-data/*
+postgres-data/
 
 ### IntelliJ IDEA ###
 .idea/modules.xml

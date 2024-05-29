@@ -22,10 +22,12 @@ To get started with this project, follow the steps below:
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/physine/ChatterBoxServer.git
+   ```
    
 ***
 
 TODO:
+- [ ] rely on the .env to tell ktor where to find the db. (better for prod)
 - [ ] make a db with an orm (may require docker to work on any pc)
 - [ ] set up the websockets
 - [ ] remove jwt from Response as not a responses has a jwt field

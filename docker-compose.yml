@@ -10,3 +10,5 @@ services:
       - "5432:5432"
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
+      - ./create_database.sh:/docker-entrypoint-initdb.d/create_database.sh
+      - ./.env:/docker-entrypoint-initdb.d/.env
