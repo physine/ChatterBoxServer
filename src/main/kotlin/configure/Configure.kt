@@ -1,11 +1,10 @@
-package physine.config
+package physine.configure
 
 import io.ktor.server.application.*
-import physine.db.TableInitializer
 import physine.routing.routes.configureUserRoutes
 
 fun Application.module() {
-    TableInitializer.init()
+    configureDatabase()
     configureLogger()
     configureJwtValidation()
     configureUserRoutes()

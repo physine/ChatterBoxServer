@@ -8,17 +8,17 @@ import java.util.*
 
 class UserRepositoryImpl(): UserRepository {
     override fun createUser(user: UserModel): UserModel {
-        println("[i] Starting transaction $this")
+//        println("[i] Starting transaction $this")
         transaction {
-            println("[i] Starting insert $this")
+//            println("[i] Starting insert $this")
             UserTable.insert {
                 it[id] = user.uuid
                 it[username] = user.username
                 it[password] = user.password
-                println("[i] Complete insert $this")
+//                println("[i] Complete insert $this")
             }
         }
-        println("[i] Complete transaction $this")
+//        println("[i] Complete transaction $this")
         return user
     }
 

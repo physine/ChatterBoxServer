@@ -1,4 +1,4 @@
-package physine.config
+package physine.configure
 
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*

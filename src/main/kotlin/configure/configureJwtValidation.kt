@@ -1,4 +1,4 @@
-package physine.config
+package physine.configure
 
 import io.ktor.http.*
 import io.ktor.server.application.*

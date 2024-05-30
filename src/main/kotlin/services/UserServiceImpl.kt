@@ -22,9 +22,7 @@ class UserServiceImpl(
             return UserResponses.userCreationNotSuccessful()
         if(!isUsernameAvailable(createUserDTO))
             return UserResponses.usernameUnavailable()
-        println("[i] Calling Repo $this")
         val userModel = userRepository.createUser(createUserDTO.toModel())
-        println("[i] Called Repo $this")
         val token = jwtService.generateToken(userModel)
         return UserResponses.userCreationSuccessful(token)
     }

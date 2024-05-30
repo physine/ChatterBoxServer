@@ -10,21 +10,19 @@ repositories {
     mavenCentral()
 }
 
+val logbackVersion = "1.5.6"
+val slf4jVersion = "2.0.13"
 val ktorVersion = "2.3.10"
 val koinVersion = "3.5.6"
-val log4j2Version = "2.23.1"
 val exposedVersion = "0.50.1"
 val postgresqlVersion = "42.7.3"
 val typesafeConfigVersion = "1.4.3"
-val slf4jVersion = "2.0.13"
-val logbackVersion = "1.5.6"
 
 dependencies {
     testImplementation(kotlin("test"))
 
-    implementation ("org.apache.logging.log4j:log4j-slf4j-impl:$log4j2Version")
-    implementation ("org.apache.logging.log4j:log4j-api:$log4j2Version")
-    implementation ("org.apache.logging.log4j:log4j-core:$log4j2Version")
+    implementation("ch.qos.logback:logback-classic:$logbackVersion")
+    implementation("org.slf4j:slf4j-api:$slf4jVersion")
 
     implementation("io.ktor:ktor-server-core:$ktorVersion")
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
@@ -36,10 +34,6 @@ dependencies {
 
     implementation("io.insert-koin:koin-core:$koinVersion")
     implementation("io.insert-koin:koin-ktor:$koinVersion")
-
-    implementation("ch.qos.logback:logback-classic:$logbackVersion")
-    implementation("ch.qos.logback:logback-core:$logbackVersion")
-    implementation("org.slf4j:slf4j-api:$slf4jVersion")
 
     implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
     implementation("org.jetbrains.exposed:exposed-dao:$exposedVersion")

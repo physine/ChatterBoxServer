@@ -1,5 +1,6 @@
 package physine.routing.routes
 
+import ch.qos.logback.classic.Logger
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
@@ -9,6 +10,7 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.serialization.encodeToString
 import org.koin.ktor.ext.inject
+import org.slf4j.LoggerFactory
 import physine.dtos.ChangePasswordRequest
 import physine.dtos.CreateUserRequest
 import physine.dtos.InfoDTO
@@ -19,6 +21,8 @@ import java.util.*
 
 fun Application.configureUserRoutes() {
     val userService: UserService by inject()
+
+    val log = LoggerFactory.getLogger("app") as Logger
 
     routing {
 
@@ -49,7 +53,7 @@ fun Application.configureUserRoutes() {
 
             // change password
             put("/user") {
-                println("[i] PUT Request /user")
+                log.info("[i] PUT Request /user")
                 val principal = call.principal<JWTPrincipal>()
                 if (principal == null) {
                     call.respond(HttpStatusCode.Unauthorized, "Invalid token")
@@ -63,7 +67,7 @@ fun Application.configureUserRoutes() {
 
             // delete user
             delete("/user") {
-                println("[i] DELETE Request /user")
+                log.info("[i] DELETE Request /user")
                 val principal = call.principal<JWTPrincipal>()
                 if (principal == null) {
                     call.respond(HttpStatusCode.Unauthorized, "Invalid token")
