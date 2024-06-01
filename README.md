@@ -1,5 +1,3 @@
-# Shane is gay
-
 # Chat Server
 
 ## Overview
