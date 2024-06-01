@@ -27,10 +27,9 @@ class UserServiceImpl(
         return UserResponses.userCreationSuccessful(token)
     }
 
-
     override fun login(loginDTO: LoginDTO): Response {
         val userModel = userRepository.getUserByUsername(loginDTO.username)
-        if (userModel == null || (userModel.password != loginDTO.password))
+        if (userModel == null || (userModel.password != loginDTO.password)) // TODO: will need encryption
             return UserResponses.logInNotSuccessful()
         return UserResponses.logInSuccessful(jwtService.generateToken(userModel))
     }

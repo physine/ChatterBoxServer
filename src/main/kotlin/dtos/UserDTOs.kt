@@ -8,7 +8,7 @@ import java.util.*
 @Serializable
 data class CreateUserDTO(val username: String, val password: String) {
     fun toModel(): UserModel {
-        return UserModel(username, password, UUID.randomUUID())
+        return UserModel(UUID.randomUUID(), username, password)
     }
 }
 

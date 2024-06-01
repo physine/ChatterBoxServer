@@ -1,30 +1,36 @@
 package physine.repositories
 
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
+import org.jetbrains.exposed.sql.deleteWhere
 import org.jetbrains.exposed.sql.insert
+import org.jetbrains.exposed.sql.select
 import org.jetbrains.exposed.sql.transactions.transaction
+import org.jetbrains.exposed.sql.update
 import physine.db.UserTable
+import physine.db.toUserModel
 import physine.models.UserModel
 import java.util.*
 
 class UserRepositoryImpl() : UserRepository {
     override fun createUser(user: UserModel): UserModel {
-//        println("[i] Starting transaction $this")
         transaction {
-//            println("[i] Starting insert $this")
             UserTable.insert {
                 it[id] = user.uuid
                 it[username] = user.username
                 it[password] = user.password
-//                println("[i] Complete insert $this")
             }
         }
-//        println("[i] Complete transaction $this")
         return user
     }
 
     override fun getUserById(userId: UUID): UserModel? {
-        TODO("Not yet implemented")
+        return transaction {
+            UserTable
+                .slice(UserTable.id, UserTable.username, UserTable.password)
+                .select(UserTable.id eq userId)
+                .mapNotNull { it.toUserModel() }
+                .singleOrNull()
+        }
     }
 
     override fun getUserByUsername(username: String): UserModel? {
@@ -32,7 +38,11 @@ class UserRepositoryImpl() : UserRepository {
     }
 
     override fun updateUser(user: UserModel): Boolean {
-        TODO("Not yet implemented")
+        return transaction {
+            UserTable.update({ UserTable.id eq user.uuid }) {
+                it[password] = user.password
+            } > 0
+        }
     }
 
     override fun isUsernameAvailable(username: String): Boolean {
@@ -43,6 +53,10 @@ class UserRepositoryImpl() : UserRepository {
     }
 
     override fun deleteUser(userId: UUID): Boolean {
-        TODO("Not yet implemented")
+        return transaction {
+            UserTable.deleteWhere {
+                UserTable.id eq userId
+            }
+        } > 0
     }
 }

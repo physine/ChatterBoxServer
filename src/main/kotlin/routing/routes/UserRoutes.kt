@@ -51,7 +51,7 @@ fun Application.configureUserRoutes() {
 
         authenticate("auth-jwt") {
 
-            // change password
+            // change password - ok
             put("/user") {
                 log.info("[i] PUT Request /user")
                 val principal = call.principal<JWTPrincipal>()
@@ -61,8 +61,8 @@ fun Application.configureUserRoutes() {
                 }
                 val changePasswordRequest = call.receive<ChangePasswordRequest>()
                 val changePasswordDTO = changePasswordRequest.toDTO(principal)
-                userService.changePassword(changePasswordDTO)
-                call.respondText("Received POST: access granted", ContentType.Text.Plain)
+                val response = userService.changePassword(changePasswordDTO)
+                return@put call.respondText(json.encodeToString(response), ContentType.Application.Json)
             }
 
             // delete user

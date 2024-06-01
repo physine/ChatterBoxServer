@@ -48,7 +48,10 @@ object UserResponses {
     }
 
     fun passwordChanged(): Response {
-        return Response(message = "Password Changed.")
+        return Response(
+            success = true,
+            message = "Password Changed."
+        )
     }
 
     fun deleteNotSuccessful(): Response {

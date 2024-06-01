@@ -27,7 +27,6 @@ data class LoginRequest(val username: String, val password: String) {
 
 @Serializable
 data class ChangePasswordRequest(
-    @Contextual val uuid: UUID,
     val newPassword: String
 ) {
     fun toDTO(principal: JWTPrincipal): ChangePasswordDTO {
