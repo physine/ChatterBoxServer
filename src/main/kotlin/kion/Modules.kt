@@ -11,8 +11,8 @@ import physine.services.jwt.JWTService
 import physine.services.jwt.JWTServiceImpl
 
 val appModule = module {
-    single { HoconApplicationConfig( ConfigFactory.load() ) }
+    single { HoconApplicationConfig(ConfigFactory.load()) }
     single<UserRepository> { UserRepositoryImpl() }
-    single<JWTService> { JWTServiceImpl( get() ) }
-    single<UserService> { UserServiceImpl( get(), get() ) }
+    single<JWTService> { JWTServiceImpl(get()) }
+    single<UserService> { UserServiceImpl(get(), get()) }
 }

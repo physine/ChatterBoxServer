@@ -1,12 +1,13 @@
 package physine.repositories
 
+import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.transactions.transaction
 import physine.db.UserTable
 import physine.models.UserModel
 import java.util.*
 
-class UserRepositoryImpl(): UserRepository {
+class UserRepositoryImpl() : UserRepository {
     override fun createUser(user: UserModel): UserModel {
 //        println("[i] Starting transaction $this")
         transaction {
@@ -32,6 +33,13 @@ class UserRepositoryImpl(): UserRepository {
 
     override fun updateUser(user: UserModel): Boolean {
         TODO("Not yet implemented")
+    }
+
+    override fun isUsernameAvailable(username: String): Boolean {
+        return transaction {
+            val count = UserTable.select ( UserTable.username eq username ).count()
+            count.toInt() == 0
+        }
     }
 
     override fun deleteUser(userId: UUID): Boolean {

@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 import java.util.*
 
 @Serializable
-data class CreateUserRequest(val username: String, val password: String){
+data class CreateUserRequest(val username: String, val password: String) {
     fun toDTO(): CreateUserDTO {
         return CreateUserDTO(
             username = this.username,
@@ -16,7 +16,7 @@ data class CreateUserRequest(val username: String, val password: String){
 }
 
 @Serializable
-data class LoginRequest(val username: String, val password: String){
+data class LoginRequest(val username: String, val password: String) {
     fun toDTO(): LoginDTO {
         return LoginDTO(
             username = this.username,
@@ -26,8 +26,10 @@ data class LoginRequest(val username: String, val password: String){
 }
 
 @Serializable
-data class ChangePasswordRequest(@Contextual val uuid: UUID,
-                                 val newPassword: String){
+data class ChangePasswordRequest(
+    @Contextual val uuid: UUID,
+    val newPassword: String
+) {
     fun toDTO(principal: JWTPrincipal): ChangePasswordDTO {
         return ChangePasswordDTO(
             uuid = UUID.fromString(principal.payload.getClaim("uuid").asString()),

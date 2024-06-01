@@ -8,5 +8,6 @@ interface UserRepository {
     fun getUserById(userId: UUID): UserModel?
     fun getUserByUsername(username: String): UserModel?
     fun updateUser(user: UserModel): Boolean
+    fun isUsernameAvailable(username: String): Boolean
     fun deleteUser(userId: UUID): Boolean
 }

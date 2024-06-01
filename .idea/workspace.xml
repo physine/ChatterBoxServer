@@ -5,13 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a8178c-35ac-40f8-9588-51d919c37f80" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/create_database.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create_database.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/configure/ConfigureDatabase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/configure/ConfigureDatabase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/configure/configureJwtValidation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/configure/configureJwtValidation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dtos/UserDTOs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dtos/UserDTOs.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dtos/UserRequestDTOs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dtos/UserRequestDTOs.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/kion/Modules.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/kion/Modules.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/UserModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/UserModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/responces/UserResponses.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/responces/UserResponses.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repositories/UserRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repositories/UserRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repositories/UserRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repositories/UserRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/routing/routes/UserRoutes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/routing/routes/UserRoutes.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/UserServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/UserServiceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/jwt/JWTServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/jwt/JWTServiceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/CredentialValidation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/utils/CredentialValidation.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +189,8 @@
       <workItem from="1716923221573" duration="44189000" />
       <workItem from="1717124397705" duration="15285000" />
       <workItem from="1717199968565" duration="86000" />
-      <workItem from="1717200064777" duration="6501000" />
+      <workItem from="1717200064777" duration="10884000" />
+      <workItem from="1717260915841" duration="5464000" />
     </task>
     <servers />
   </component>

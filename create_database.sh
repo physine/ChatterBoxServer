@@ -50,7 +50,7 @@ if $PRODUCTION_MODE; then
   echo "Production Mode On. (Prod DB Only)."
   create_db_if_not_exists $POSTGRES_DB_PROD
 else
-  echo "Production Mode OFF. (Dev & Test DBs)."
+  echo "Production Mode Off. (Dev & Test DBs)."
   create_db_if_not_exists $POSTGRES_DB_TEST
   create_db_if_not_exists $POSTGRES_DB_DEV
 fi

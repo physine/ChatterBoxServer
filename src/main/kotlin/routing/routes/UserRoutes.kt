@@ -26,7 +26,7 @@ fun Application.configureUserRoutes() {
 
     routing {
 
-        get("/debug/user"){
+        get("/debug/user") {
             val infoDTO = call.receive<InfoDTO>()
             return@get call.respondText(userService.getUserInfo(infoDTO.username).toString())
         }

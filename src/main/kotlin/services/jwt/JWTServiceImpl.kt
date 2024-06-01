@@ -7,7 +7,7 @@ import io.ktor.server.config.*
 import physine.models.UserModel
 import java.util.*
 
-class JWTServiceImpl(private val config: HoconApplicationConfig): JWTService {
+class JWTServiceImpl(private val config: HoconApplicationConfig) : JWTService {
 
     private val audience = config.property("jwt.audience").getString()
     private val issuer = config.property("jwt.issuer").getString()

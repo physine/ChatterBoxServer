@@ -8,37 +8,43 @@ object UserResponses {
     fun userCreationSuccessful(token: String): Response {
         return Response(
             message = "Account Creation Successful. Logged In.",
-            jwt = token)
+            jwt = token
+        )
     }
 
     fun userCreationNotSuccessful(): Response {
         return Response(
             success = false,
-            message = "Could Not Create Account.")
+            message = "Could Not Create Account."
+        )
     }
 
     fun logInSuccessful(token: String): Response {
         return Response(
             message = "Login Successful.",
-            jwt = token)
+            jwt = token
+        )
     }
 
     fun logInNotSuccessful(): Response {
         return Response(
             success = false,
-            message = "Login Not Successful. Username and/or password is wrong.")
+            message = "Login Not Successful. Username and/or password is wrong."
+        )
     }
 
     fun usernameUnavailable(): Response {
         return Response(
             success = false,
-            message = "Username Not Available.")
+            message = "Username Not Available."
+        )
     }
 
     fun passwordCouldNotBeChanged(): Response {
         return Response(
             success = false,
-            message = "Password Could Not Be Changed.")
+            message = "Password Could Not Be Changed."
+        )
     }
 
     fun passwordChanged(): Response {
@@ -48,10 +54,18 @@ object UserResponses {
     fun deleteNotSuccessful(): Response {
         return Response(
             success = false,
-            message = "Delete Not Successful.")
+            message = "Delete Not Successful."
+        )
     }
 
     fun deleteSuccessful(): Response {
         return Response(message = "Delete Successful.")
+    }
+
+    fun invalidPassword(): Response {
+        return Response(
+            success = false,
+            message = "Invalid Password."
+        )
     }
 }
