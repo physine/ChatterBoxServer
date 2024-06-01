@@ -14,7 +14,7 @@ object UserResponses {
     fun userCreationNotSuccessful(): Response {
         return Response(
             success = false,
-            message = "Could Note Create Account.")
+            message = "Could Not Create Account.")
     }
 
     fun logInSuccessful(token: String): Response {

@@ -27,6 +27,7 @@ To get started with this project, follow the steps below:
 ***
 
 TODO:
+- [ ] finish the user service
 - [ ] set up the websockets
 - [ ] remove jwt from Response as not a responses has a jwt field
 - [x] make a db with an orm (may require docker to work on any pc)

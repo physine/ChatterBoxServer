@@ -35,17 +35,17 @@ class UserServiceImpl(
     }
 
     override fun changePassword(changePasswordDTO: ChangePasswordDTO): Response {
-        // TODO: validate new password first
-        val userModel = userRepository.getUserById(changePasswordDTO.uuid)
-        if(userModel == null)
-            return UserResponses.passwordCouldNotBeChanged()
+        val userModel = userRepository.getUserById(changePasswordDTO.uuid) ?: return UserResponses.passwordCouldNotBeChanged()
+
+        // TODO: validate new passwords match
+
         userModel.password = changePasswordDTO.newPassword
         userRepository.updateUser(userModel)
         return UserResponses.passwordChanged()
     }
 
     override fun delete(uuid: UUID): Response {
-        return if ( userRepository.deleteUser(uuid) )
+        return if (userRepository.deleteUser(uuid))
                 UserResponses.deleteSuccessful()
                 else
                 UserResponses.deleteNotSuccessful()

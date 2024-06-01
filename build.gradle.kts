@@ -17,6 +17,7 @@ val koinVersion = "3.5.6"
 val exposedVersion = "0.50.1"
 val postgresqlVersion = "42.7.3"
 val typesafeConfigVersion = "1.4.3"
+val dotenvKotlinVersion = "6.4.1"
 
 dependencies {
     testImplementation(kotlin("test"))
@@ -43,6 +44,9 @@ dependencies {
     implementation("org.postgresql:postgresql:$postgresqlVersion")
 
     implementation("com.typesafe:config:$typesafeConfigVersion")
+
+    implementation("io.github.cdimascio:dotenv-kotlin:$dotenvKotlinVersion")
+
 }
 
 tasks.test {
