@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.slf4j.LoggerFactory
 import physine.chatterBoxApi.ChatterBox
+import physine.models.responces.Response
 import java.net.URI
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
@@ -21,12 +22,16 @@ import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.SQLException
 import java.sql.Statement
-import kotlin.test.assertEquals
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class UserTest {
-    val log = LoggerFactory.getLogger("app") as Logger
+    private val log = LoggerFactory.getLogger("app") as Logger
     private val url = "http://localhost:8080/user"
+    private val objectMapper = ObjectMapper()
+    private val requestBodyValues: MutableMap<String, String> = mutableMapOf(
+        "username" to "user",
+        "password" to "password123"
+    )
 
     companion object {
 
@@ -78,19 +83,67 @@ class UserTest {
 
     @BeforeEach
     fun beforeEach(){
-        // clear all rows in test db
         dropAllRows("User")
+        requestBodyValues["username"] = "user"
+        requestBodyValues["password"] = "password123"
     }
 
     @Test
-    fun loginTest() {
-        log.info("loginTest")
-        val values = mapOf(
-            "username" to "user",
-            "password" to "password123"
-        )
+    fun createUserTest() {
+        val response = doPostRequest(url, requestBodyValues)
+        assert(response.body().contains("Account Creation Successful. Logged In."))
+    }
 
-        val objectMapper = ObjectMapper()
+    @Test
+    fun usernameNotAvailable(){
+        doPostRequest(url, requestBodyValues)
+        val response = doPostRequest(url, requestBodyValues)
+        assert(response.body().contains("Username Not Available."))
+    }
+
+    @Test
+    fun loginTest(){
+        var response = doPostRequest(url, requestBodyValues)
+        var bodyJsonStr = response.body().toString()
+        var bodyJson = objectMapper.readValue(bodyJsonStr, Response::class.java)
+        log.info(bodyJson.message)
+        assert(bodyJson.message == "Account Creation Successful. Logged In.")
+
+        response = doPostRequest("$url/login", requestBodyValues)
+        bodyJsonStr = response.body().toString()
+        bodyJson = objectMapper.readValue(bodyJsonStr, Response::class.java)
+        assert(bodyJson.message == "Login Successful.")
+    }
+
+    @Test
+    fun loginNotSuccessfulTest(){
+        // create user to login
+        var response = doPostRequest(url, requestBodyValues)
+        var bodyJsonStr = response.body().toString()
+        var bodyJson = objectMapper.readValue(bodyJsonStr, Response::class.java)
+        assert(bodyJson.message == "Account Creation Successful. Logged In.")
+
+        // try login with wrong username and correct password
+        requestBodyValues["username"] = "wrongUsername"
+        response = doPostRequest("$url/login", requestBodyValues)
+        bodyJsonStr = response.body().toString()
+        bodyJson = objectMapper.readValue(bodyJsonStr, Response::class.java)
+        assert(bodyJson.message == "Login Not Successful. Username and/or password is wrong.")
+
+        // try login with correct username and wrong password
+        requestBodyValues["username"] = "user"
+        requestBodyValues["password"] = "wrongPassword"
+        response = doPostRequest("$url/login", requestBodyValues)
+        bodyJsonStr = response.body().toString()
+        bodyJson = objectMapper.readValue(bodyJsonStr, Response::class.java)
+        assert(bodyJson.message == "Login Not Successful. Username and/or password is wrong.")
+    }
+
+    // TODO: create test for changing password
+
+    // TODO: create test for deleting a user
+
+    private fun doPostRequest(url: String, values:  Map<String, String> ) : HttpResponse<String> {
         val requestBody = objectMapper.writeValueAsString(values)
         val client = HttpClient.newBuilder().build();
         val request = HttpRequest.newBuilder()
@@ -98,11 +151,7 @@ class UserTest {
             .header("Content-Type", "application/json")
             .POST(HttpRequest.BodyPublishers.ofString(requestBody))
             .build()
-
-        val response = client.send(request, HttpResponse.BodyHandlers.ofString())
-        println(response.body())
-        assert(response.body().contains("Account Creation Successful."))
-        assertEquals(200, response.statusCode())
+        return client.send(request, HttpResponse.BodyHandlers.ofString())
     }
 
     private fun dropAllRows(tableName: String) {
