@@ -34,7 +34,13 @@ class UserRepositoryImpl() : UserRepository {
     }
 
     override fun getUserByUsername(username: String): UserModel? {
-        TODO("Not yet implemented")
+        return transaction {
+            UserTable
+                .slice(UserTable.id, UserTable.username, UserTable.password)
+                .select(UserTable.username eq username)
+                .mapNotNull { it.toUserModel() }
+                .singleOrNull()
+        }
     }
 
     override fun updateUser(user: UserModel): Boolean {

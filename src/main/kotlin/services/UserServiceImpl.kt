@@ -1,5 +1,7 @@
 package physine.services
 
+import ch.qos.logback.classic.Logger
+import org.slf4j.LoggerFactory
 import physine.dtos.ChangePasswordDTO
 import physine.dtos.CreateUserDTO
 import physine.dtos.LoginDTO
@@ -17,6 +19,8 @@ class UserServiceImpl(
     private val jwtService: JWTService
 ) : UserService {
 
+    private val log = LoggerFactory.getLogger("app") as Logger
+
     override fun create(createUserDTO: CreateUserDTO): Response {
         if (!validateCreds(createUserDTO.username, createUserDTO.password))
             return UserResponses.userCreationNotSuccessful()
@@ -28,14 +32,17 @@ class UserServiceImpl(
     }
 
     override fun login(loginDTO: LoginDTO): Response {
-        val userModel = userRepository.getUserByUsername(loginDTO.username)
-        if (userModel == null || (userModel.password != loginDTO.password)) // TODO: will need encryption
+        val userModel = userRepository.getUserByUsername(loginDTO.username) ?: return UserResponses.logInNotSuccessful()
+        log.info("[i] login attempt from ${userModel.username}")
+        if (userModel.password != loginDTO.password) // TODO: will need encryption
             return UserResponses.logInNotSuccessful()
+
         return UserResponses.logInSuccessful(jwtService.generateToken(userModel))
     }
 
     override fun changePassword(changePasswordDTO: ChangePasswordDTO): Response {
         val userModel = userRepository.getUserById(changePasswordDTO.uuid) ?: return UserResponses.passwordCouldNotBeChanged()
+        log.info("[i] Change password request from ${userModel.username}")
         if (!validatePassword(changePasswordDTO.newPassword))
             return UserResponses.invalidPassword()
         userModel.password = changePasswordDTO.newPassword
@@ -44,6 +51,7 @@ class UserServiceImpl(
     }
 
     override fun delete(uuid: UUID): Response {
+        log.info("[i] Account deletion attempt from $uuid")
         return if (userRepository.deleteUser(uuid))
             UserResponses.deleteSuccessful()
         else

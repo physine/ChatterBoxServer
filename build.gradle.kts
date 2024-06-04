@@ -18,6 +18,7 @@ val exposedVersion = "0.50.1"
 val postgresqlVersion = "42.7.3"
 val typesafeConfigVersion = "1.4.3"
 val dotenvKotlinVersion = "6.4.1"
+val jacksonDatabindVersion = "2.17.1"
 
 dependencies {
     testImplementation(kotlin("test"))
@@ -25,6 +26,11 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
     implementation("org.slf4j:slf4j-api:$slf4jVersion")
 
+    implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonDatabindVersion")
+
+    implementation("io.ktor:ktor-client-cio:$ktorVersion")
+
+    implementation("io.ktor:ktor-client-core:$ktorVersion")
     implementation("io.ktor:ktor-server-core:$ktorVersion")
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
     implementation("io.ktor:ktor-server-auth:$ktorVersion")
@@ -46,7 +52,6 @@ dependencies {
     implementation("com.typesafe:config:$typesafeConfigVersion")
 
     implementation("io.github.cdimascio:dotenv-kotlin:$dotenvKotlinVersion")
-
 }
 
 tasks.test {

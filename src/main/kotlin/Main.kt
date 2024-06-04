@@ -1,8 +1,7 @@
 package physine
 
-import physine.chatterBoxApi.ChatterBoxImpl
+import physine.chatterBoxApi.ChatterBox
 
 fun main() {
-    val chatterBoxImpl = ChatterBoxImpl()
-    chatterBoxImpl.run()
+    ChatterBox().run()
 }

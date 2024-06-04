@@ -5,13 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a8178c-35ac-40f8-9588-51d919c37f80" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/db/MapFunctions.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/UserTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/db/UserTable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/db/UserTable.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dtos/UserDTOs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dtos/UserDTOs.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dtos/UserRequestDTOs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dtos/UserRequestDTOs.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/UserModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/UserModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/chatterBoxApi/ChatterBox.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/chatterBoxApi/ChatterBox.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/chatterBoxApi/ChatterBoxImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/chatterBoxApi/ChatterBoxImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/configure/ConfigureDatabase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/configure/ConfigureDatabase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/kion/Modules.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/kion/Modules.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/responces/UserResponses.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/responces/UserResponses.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/repositories/UserRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repositories/UserRepositoryImpl.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/routing/routes/UserRoutes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/routing/routes/UserRoutes.kt" afterDir="false" />
@@ -21,6 +25,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -50,10 +57,10 @@
         <option value="Class" />
         <option value="Kotlin Data Class" />
         <option value="Kotlin Interface" />
-        <option value="Kotlin Class" />
         <option value="Dockerfile" />
         <option value="Kotlin Object" />
         <option value="Kotlin File" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -62,6 +69,9 @@
   </component>
   <component name="KotlinCodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -81,11 +91,13 @@
     "Docker.Dockerfile.executor": "Run",
     "Gradle.Build ChatterBox-ServerKt.executor": "Run",
     "Gradle.Download Sources.executor": "Run",
+    "Gradle.UserTest.executor": "Run",
+    "Gradle.UserTest.loginTest.executor": "Run",
     "Kotlin.MainKt.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/frosty/projects/BetAssistKt/pom.xml",
+    "last_opened_file_path": "/home/frosty/projects/ChatterBox-ServerKt",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.stylelint": "true",
     "node.js.detected.package.tslint": "true",
@@ -96,7 +108,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.48156682",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Kotlin",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -120,7 +132,55 @@
       <recent name="models" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MainKt">
+  <component name="RunManager" selected="Gradle.UserTest.loginTest">
+    <configuration name="UserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;UserTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserTest.loginTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;UserTest.loginTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="physine.MainKt" />
       <module name="ChatterBox-ServerKt.main" />
@@ -140,10 +200,14 @@
     </configuration>
     <list>
       <item itemvalue="Docker.Dockerfile" />
+      <item itemvalue="Gradle.UserTest" />
+      <item itemvalue="Gradle.UserTest.loginTest" />
       <item itemvalue="Kotlin.MainKt" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.UserTest.loginTest" />
+        <item itemvalue="Gradle.UserTest" />
         <item itemvalue="Kotlin.MainKt" />
       </list>
     </recent_temporary>
@@ -185,7 +249,10 @@
       <workItem from="1717124397705" duration="15285000" />
       <workItem from="1717199968565" duration="86000" />
       <workItem from="1717200064777" duration="10884000" />
-      <workItem from="1717260915841" duration="15622000" />
+      <workItem from="1717260915841" duration="30776000" />
+      <workItem from="1717354995009" duration="15410000" />
+      <workItem from="1717460080636" duration="332000" />
+      <workItem from="1717460667756" duration="4715000" />
     </task>
     <servers />
   </component>

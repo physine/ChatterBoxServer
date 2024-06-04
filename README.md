@@ -36,9 +36,11 @@ To get started with this project, follow the steps below:
 
 TODO:
 
-- [ ] finish the user service
+- [ ] create some end-to-end IT tests for the User routes
+- [ ] add password encryption with salting
+- [ ] add open ssl
 - [ ] set up the websockets
-- [ ] remove jwt from Response as not a responses has a jwt field
+- [x] finish the user service
 - [x] make a db with an orm (may require docker to work on any pc)
 - [x] replace application.conf db vars with env vars (work better for testing, dev, and prod)
 - [x] finish the user controller (JWTPrincipal where needed), service, and repo

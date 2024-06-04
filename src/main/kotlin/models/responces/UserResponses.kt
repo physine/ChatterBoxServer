@@ -15,6 +15,7 @@ object UserResponses {
     fun userCreationNotSuccessful(): Response {
         return Response(
             success = false,
+            statusCode = 400,
             message = "Could Not Create Account."
         )
     }
@@ -29,6 +30,7 @@ object UserResponses {
     fun logInNotSuccessful(): Response {
         return Response(
             success = false,
+            statusCode = 400,
             message = "Login Not Successful. Username and/or password is wrong."
         )
     }
@@ -36,6 +38,7 @@ object UserResponses {
     fun usernameUnavailable(): Response {
         return Response(
             success = false,
+            statusCode = 400,
             message = "Username Not Available."
         )
     }
@@ -43,13 +46,13 @@ object UserResponses {
     fun passwordCouldNotBeChanged(): Response {
         return Response(
             success = false,
+            statusCode = 400,
             message = "Password Could Not Be Changed."
         )
     }
 
     fun passwordChanged(): Response {
         return Response(
-            success = true,
             message = "Password Changed."
         )
     }
@@ -57,18 +60,24 @@ object UserResponses {
     fun deleteNotSuccessful(): Response {
         return Response(
             success = false,
+            statusCode = 400,
             message = "Delete Not Successful."
         )
     }
 
     fun deleteSuccessful(): Response {
-        return Response(message = "Delete Successful.")
+        return Response(
+            success = false,
+            statusCode = 400,
+            message = "Delete Successful."
+        )
     }
 
     fun invalidPassword(): Response {
         return Response(
             success = false,
-            message = "Invalid Password."
+            statusCode = 400,
+            message = "Invalid Password. Too Short."
         )
     }
 }

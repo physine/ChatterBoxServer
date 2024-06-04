@@ -26,6 +26,10 @@ fun Application.configureUserRoutes() {
 
     routing {
 
+        get("/health-check") {
+            return@get call.respondText("OK", ContentType.Text.Plain)
+        }
+
         get("/debug/user") {
             val infoDTO = call.receive<InfoDTO>()
             return@get call.respondText(userService.getUserInfo(infoDTO.username).toString())
@@ -53,7 +57,7 @@ fun Application.configureUserRoutes() {
 
             // change password - ok
             put("/user") {
-                log.info("[i] PUT Request /user")
+                log.info("[i] PUT /user")
                 val principal = call.principal<JWTPrincipal>()
                 if (principal == null) {
                     call.respond(HttpStatusCode.Unauthorized, "Invalid token")
@@ -65,7 +69,7 @@ fun Application.configureUserRoutes() {
                 return@put call.respondText(json.encodeToString(response), ContentType.Application.Json)
             }
 
-            // delete user
+            // delete user - ok
             delete("/user") {
                 log.info("[i] DELETE Request /user")
                 val principal = call.principal<JWTPrincipal>()
