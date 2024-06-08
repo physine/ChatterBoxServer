@@ -29,8 +29,6 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonDatabindVersion")
 
     implementation("io.ktor:ktor-client-cio:$ktorVersion")
-
-    implementation("io.ktor:ktor-client-core:$ktorVersion")
     implementation("io.ktor:ktor-server-core:$ktorVersion")
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
     implementation("io.ktor:ktor-server-auth:$ktorVersion")
@@ -38,6 +36,7 @@ dependencies {
     implementation("io.ktor:ktor-serialization:$ktorVersion")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
     implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
+    implementation("io.ktor:ktor-server-websockets:$ktorVersion")
 
     implementation("io.insert-koin:koin-core:$koinVersion")
     implementation("io.insert-koin:koin-ktor:$koinVersion")

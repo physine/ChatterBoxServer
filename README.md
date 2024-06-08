@@ -36,10 +36,10 @@ To get started with this project, follow the steps below:
 
 TODO:
 
-- [ ] create some end-to-end IT tests for the User routes
-- [ ] add password encryption with salting
-- [ ] add open ssl
 - [ ] set up the websockets
+- [ ] add open ssl
+- [ ] add password encryption with salting
+- [x] create some end-to-end IT tests for the User routes
 - [x] finish the user service
 - [x] make a db with an orm (may require docker to work on any pc)
 - [x] replace application.conf db vars with env vars (work better for testing, dev, and prod)

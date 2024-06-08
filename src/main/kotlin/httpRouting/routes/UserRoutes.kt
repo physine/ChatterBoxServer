@@ -59,13 +59,11 @@ fun Application.configureUserRoutes() {
             put("/user") {
                 log.info("[i] PUT /user")
                 val principal = call.principal<JWTPrincipal>()
-                if (principal == null) {
-                    call.respond(HttpStatusCode.Unauthorized, "Invalid token")
-                    return@put
-                }
+                    ?: return@put call.respond(HttpStatusCode.Unauthorized, "Invalid token")
                 val changePasswordRequest = call.receive<ChangePasswordRequest>()
                 val changePasswordDTO = changePasswordRequest.toDTO(principal)
                 val response = userService.changePassword(changePasswordDTO)
+                call.response.status(HttpStatusCode(response.statusCode, response.message))
                 return@put call.respondText(json.encodeToString(response), ContentType.Application.Json)
             }
 
@@ -73,10 +71,7 @@ fun Application.configureUserRoutes() {
             delete("/user") {
                 log.info("[i] DELETE Request /user")
                 val principal = call.principal<JWTPrincipal>()
-                if (principal == null) {
-                    call.respond(HttpStatusCode.Unauthorized, "Invalid token")
-                    return@delete
-                }
+                    ?: return@delete call.respond(HttpStatusCode.Unauthorized, "Invalid token")
                 val uuid = UUID.fromString(principal.payload.getClaim("uuid").asString())
                 userService.delete(uuid)
                 call.respondText("User deleted", ContentType.Text.Plain)

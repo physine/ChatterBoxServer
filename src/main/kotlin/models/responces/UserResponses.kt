@@ -5,76 +5,76 @@ import kotlinx.serialization.Serializable
 @Serializable
 object UserResponses {
 
-    fun userCreationSuccessful(token: String): Response {
-        return Response(
+    fun userCreationSuccessful(token: String): UserResponse {
+        return UserResponse(
             message = "Account Creation Successful. Logged In.",
             jwt = token
         )
     }
 
-    fun userCreationNotSuccessful(): Response {
-        return Response(
+    fun userCreationNotSuccessful(): UserResponse {
+        return UserResponse(
             success = false,
             statusCode = 400,
             message = "Could Not Create Account."
         )
     }
 
-    fun logInSuccessful(token: String): Response {
-        return Response(
+    fun logInSuccessful(token: String): UserResponse {
+        return UserResponse(
             message = "Login Successful.",
             jwt = token
         )
     }
 
-    fun logInNotSuccessful(): Response {
-        return Response(
+    fun logInNotSuccessful(): UserResponse {
+        return UserResponse(
             success = false,
             statusCode = 400,
             message = "Login Not Successful. Username and/or password is wrong."
         )
     }
 
-    fun usernameUnavailable(): Response {
-        return Response(
+    fun usernameUnavailable(): UserResponse {
+        return UserResponse(
             success = false,
             statusCode = 400,
             message = "Username Not Available."
         )
     }
 
-    fun passwordCouldNotBeChanged(): Response {
-        return Response(
+    fun passwordCouldNotBeChanged(): UserResponse {
+        return UserResponse(
             success = false,
             statusCode = 400,
             message = "Password Could Not Be Changed."
         )
     }
 
-    fun passwordChanged(): Response {
-        return Response(
+    fun passwordChanged(): UserResponse {
+        return UserResponse(
             message = "Password Changed."
         )
     }
 
-    fun deleteNotSuccessful(): Response {
-        return Response(
+    fun deleteNotSuccessful(): UserResponse {
+        return UserResponse(
             success = false,
             statusCode = 400,
             message = "Delete Not Successful."
         )
     }
 
-    fun deleteSuccessful(): Response {
-        return Response(
+    fun deleteSuccessful(): UserResponse {
+        return UserResponse(
             success = false,
             statusCode = 400,
             message = "Delete Successful."
         )
     }
 
-    fun invalidPassword(): Response {
-        return Response(
+    fun invalidPassword(): UserResponse {
+        return UserResponse(
             success = false,
             statusCode = 400,
             message = "Invalid Password. Too Short."

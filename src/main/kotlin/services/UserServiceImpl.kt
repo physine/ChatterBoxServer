@@ -6,7 +6,7 @@ import physine.dtos.ChangePasswordDTO
 import physine.dtos.CreateUserDTO
 import physine.dtos.LoginDTO
 import physine.models.UserModel
-import physine.models.responces.Response
+import physine.models.responces.UserResponse
 import physine.models.responces.UserResponses
 import physine.repositories.UserRepository
 import physine.services.jwt.JWTService
@@ -21,7 +21,7 @@ class UserServiceImpl(
 
     private val log = LoggerFactory.getLogger("app") as Logger
 
-    override fun create(createUserDTO: CreateUserDTO): Response {
+    override fun create(createUserDTO: CreateUserDTO): UserResponse {
         if (!validateCreds(createUserDTO.username, createUserDTO.password))
             return UserResponses.userCreationNotSuccessful()
         if (!userRepository.isUsernameAvailable(createUserDTO.username))
@@ -31,7 +31,7 @@ class UserServiceImpl(
         return UserResponses.userCreationSuccessful(token)
     }
 
-    override fun login(loginDTO: LoginDTO): Response {
+    override fun login(loginDTO: LoginDTO): UserResponse {
         val userModel = userRepository.getUserByUsername(loginDTO.username) ?: return UserResponses.logInNotSuccessful()
         log.info("[i] login attempt from ${userModel.username}")
         if (userModel.password != loginDTO.password) // TODO: will need encryption
@@ -40,7 +40,7 @@ class UserServiceImpl(
         return UserResponses.logInSuccessful(jwtService.generateToken(userModel))
     }
 
-    override fun changePassword(changePasswordDTO: ChangePasswordDTO): Response {
+    override fun changePassword(changePasswordDTO: ChangePasswordDTO): UserResponse {
         val userModel = userRepository.getUserById(changePasswordDTO.uuid) ?: return UserResponses.passwordCouldNotBeChanged()
         log.info("[i] Change password request from ${userModel.username}")
         if (!validatePassword(changePasswordDTO.newPassword))
@@ -50,7 +50,7 @@ class UserServiceImpl(
         return UserResponses.passwordChanged()
     }
 
-    override fun delete(uuid: UUID): Response {
+    override fun delete(uuid: UUID): UserResponse {
         log.info("[i] Account deletion attempt from $uuid")
         return if (userRepository.deleteUser(uuid))
             UserResponses.deleteSuccessful()

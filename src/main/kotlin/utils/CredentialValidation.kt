@@ -20,4 +20,8 @@ object CredentialValidation {
     fun validatePassword(password: String): Boolean {
         return password.length > MINIMUM_PASSWORD_LENGTH
     }
+
+    fun validateGroupName(groupName: String): Boolean {
+        return true
+    }
 }

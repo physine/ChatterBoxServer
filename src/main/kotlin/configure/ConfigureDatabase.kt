@@ -6,7 +6,9 @@ import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.slf4j.LoggerFactory
-import physine.db.UserTable
+import physine.db.GroupsTable
+import physine.db.MessagesTable
+import physine.db.UsersTable
 
 fun configureDatabase() {
     val log = LoggerFactory.getLogger("app") as Logger
@@ -34,6 +36,8 @@ fun configureDatabase() {
     )
 
     transaction {
-        SchemaUtils.create(UserTable)
+        SchemaUtils.create(UsersTable)
+        SchemaUtils.create(GroupsTable)
+        SchemaUtils.create(MessagesTable)
     }
 }

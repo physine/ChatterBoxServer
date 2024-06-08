@@ -7,4 +7,5 @@ interface JWTService {
     val realm: String
     fun generateToken(user: UserModel): String
     fun generateVerifier(): JWTVerifier
+    fun isValidToken(token: String): Boolean
 }

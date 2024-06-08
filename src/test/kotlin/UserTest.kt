@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.slf4j.LoggerFactory
 import physine.chatterBoxApi.ChatterBox
-import physine.models.responces.Response
+import physine.models.responces.UserResponse
 import java.net.URI
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
@@ -29,8 +29,8 @@ class UserTest {
     private val url = "http://localhost:8080/user"
     private val objectMapper = ObjectMapper()
     private val requestBodyValues: MutableMap<String, String> = mutableMapOf(
-        "username" to "user",
-        "password" to "password123"
+        "username" to "test_user",
+        "password" to "test_password"
     )
 
     companion object {
@@ -83,9 +83,9 @@ class UserTest {
 
     @BeforeEach
     fun beforeEach(){
-        dropAllRows("User")
-        requestBodyValues["username"] = "user"
-        requestBodyValues["password"] = "password123"
+        dropAllRows("users")
+        requestBodyValues["username"] = "test_user"
+        requestBodyValues["password"] = "test_password"
     }
 
     @Test
@@ -105,13 +105,13 @@ class UserTest {
     fun loginTest(){
         var response = doPostRequest(url, requestBodyValues)
         var bodyJsonStr = response.body().toString()
-        var bodyJson = objectMapper.readValue(bodyJsonStr, Response::class.java)
+        var bodyJson = objectMapper.readValue(bodyJsonStr, UserResponse::class.java)
         log.info(bodyJson.message)
         assert(bodyJson.message == "Account Creation Successful. Logged In.")
 
         response = doPostRequest("$url/login", requestBodyValues)
         bodyJsonStr = response.body().toString()
-        bodyJson = objectMapper.readValue(bodyJsonStr, Response::class.java)
+        bodyJson = objectMapper.readValue(bodyJsonStr, UserResponse::class.java)
         assert(bodyJson.message == "Login Successful.")
     }
 
@@ -120,22 +120,22 @@ class UserTest {
         // create user to login
         var response = doPostRequest(url, requestBodyValues)
         var bodyJsonStr = response.body().toString()
-        var bodyJson = objectMapper.readValue(bodyJsonStr, Response::class.java)
+        var bodyJson = objectMapper.readValue(bodyJsonStr, UserResponse::class.java)
         assert(bodyJson.message == "Account Creation Successful. Logged In.")
 
         // try login with wrong username and correct password
-        requestBodyValues["username"] = "wrongUsername"
+        requestBodyValues["username"] = "wrong_username"
         response = doPostRequest("$url/login", requestBodyValues)
         bodyJsonStr = response.body().toString()
-        bodyJson = objectMapper.readValue(bodyJsonStr, Response::class.java)
+        bodyJson = objectMapper.readValue(bodyJsonStr, UserResponse::class.java)
         assert(bodyJson.message == "Login Not Successful. Username and/or password is wrong.")
 
         // try login with correct username and wrong password
-        requestBodyValues["username"] = "user"
-        requestBodyValues["password"] = "wrongPassword"
+        requestBodyValues["username"] = "test_username"
+        requestBodyValues["password"] = "wrong_Password"
         response = doPostRequest("$url/login", requestBodyValues)
         bodyJsonStr = response.body().toString()
-        bodyJson = objectMapper.readValue(bodyJsonStr, Response::class.java)
+        bodyJson = objectMapper.readValue(bodyJsonStr, UserResponse::class.java)
         assert(bodyJson.message == "Login Not Successful. Username and/or password is wrong.")
     }
 

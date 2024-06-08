@@ -6,7 +6,7 @@ import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.select
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.jetbrains.exposed.sql.update
-import physine.db.UserTable
+import physine.db.UsersTable
 import physine.db.toUserModel
 import physine.models.UserModel
 import java.util.*
@@ -14,8 +14,8 @@ import java.util.*
 class UserRepositoryImpl() : UserRepository {
     override fun createUser(user: UserModel): UserModel {
         transaction {
-            UserTable.insert {
-                it[id] = user.uuid
+            UsersTable.insert {
+                it[userId] = user.uuid
                 it[username] = user.username
                 it[password] = user.password
             }
@@ -25,9 +25,9 @@ class UserRepositoryImpl() : UserRepository {
 
     override fun getUserById(userId: UUID): UserModel? {
         return transaction {
-            UserTable
-                .slice(UserTable.id, UserTable.username, UserTable.password)
-                .select(UserTable.id eq userId)
+            UsersTable
+                .slice(UsersTable.userId, UsersTable.username, UsersTable.password)
+                .select(UsersTable.userId eq userId)
                 .mapNotNull { it.toUserModel() }
                 .singleOrNull()
         }
@@ -35,9 +35,9 @@ class UserRepositoryImpl() : UserRepository {
 
     override fun getUserByUsername(username: String): UserModel? {
         return transaction {
-            UserTable
-                .slice(UserTable.id, UserTable.username, UserTable.password)
-                .select(UserTable.username eq username)
+            UsersTable
+                .slice(UsersTable.userId, UsersTable.username, UsersTable.password)
+                .select(UsersTable.username eq username)
                 .mapNotNull { it.toUserModel() }
                 .singleOrNull()
         }
@@ -45,7 +45,7 @@ class UserRepositoryImpl() : UserRepository {
 
     override fun updateUser(user: UserModel): Boolean {
         return transaction {
-            UserTable.update({ UserTable.id eq user.uuid }) {
+            UsersTable.update({ UsersTable.userId eq user.uuid }) {
                 it[password] = user.password
             } > 0
         }
@@ -53,15 +53,15 @@ class UserRepositoryImpl() : UserRepository {
 
     override fun isUsernameAvailable(username: String): Boolean {
         return transaction {
-            val count = UserTable.select ( UserTable.username eq username ).count()
+            val count = UsersTable.select ( UsersTable.username eq username ).count()
             count.toInt() == 0
         }
     }
 
     override fun deleteUser(userId: UUID): Boolean {
         return transaction {
-            UserTable.deleteWhere {
-                UserTable.id eq userId
+            UsersTable.deleteWhere {
+                UsersTable.userId eq userId
             }
         } > 0
     }

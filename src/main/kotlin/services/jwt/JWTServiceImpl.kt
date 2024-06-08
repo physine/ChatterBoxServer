@@ -7,7 +7,7 @@ import io.ktor.server.config.*
 import physine.models.UserModel
 import java.util.*
 
-class JWTServiceImpl(private val config: HoconApplicationConfig) : JWTService {
+class JWTServiceImpl(config: HoconApplicationConfig) : JWTService {
 
     private val audience = config.property("jwt.audience").getString()
     private val issuer = config.property("jwt.issuer").getString()
@@ -33,5 +33,15 @@ class JWTServiceImpl(private val config: HoconApplicationConfig) : JWTService {
             .withIssuer(issuer)
             .build()
         return verifier
+    }
+
+    override fun isValidToken(token: String): Boolean {
+        return try {
+            val verifier = generateVerifier()
+            verifier.verify(token)
+            true
+        } catch (exception: Exception) {
+            false
+        }
     }
 }
