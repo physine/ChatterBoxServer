@@ -21,11 +21,11 @@ class GroupServiceImpl(private val groupRepository: GroupRepository) : GroupServ
         return GroupResponse()
     }
 
-    override fun joinGroup(group: GroupModel): Boolean {
+    override fun joinGroup(group: GroupModel): GroupResponse {
         TODO("Not yet implemented")
     }
 
-    override fun leaveGroup(group: GroupModel): Boolean {
+    override fun leaveGroup(group: GroupModel): GroupResponse {
         TODO("Not yet implemented")
     }
 }

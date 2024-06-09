@@ -5,41 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a8178c-35ac-40f8-9588-51d919c37f80" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/configure/ConfigureSockets.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/db/GroupsTable.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/db/MessagesTable.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dtos/GroupDTOs.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dtos/GroupRequestDTOs.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/httpRouting/routes/GroupRoutes.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/models/GroupModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/models/MessageModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/models/responces/GroupResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepositoryImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupServiceImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/socketRoutes/ConfigureSocketRoutes.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/configure/Configure.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/configure/Configure.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/configure/ConfigureDatabase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/configure/ConfigureDatabase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/configure/configureJwtValidation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/configure/ConfigureJwtValidation.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/configure/configureSerialization.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/configure/ConfigureSerialization.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/db/MapFunctions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/db/MapFunctions.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/db/UserTable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/db/UsersTable.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/kion/Modules.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/kion/Modules.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/responces/Response.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/responces/UserResponse.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/responces/UserResponses.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/responces/UserResponses.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repositories/UserRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repositories/UserRepositoryImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/routing/RouteJsonConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/httpRouting/RouteJsonConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/routing/routes/UserRoutes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/httpRouting/routes/UserRoutes.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/UserService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/UserService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/UserServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/UserServiceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/jwt/JWTService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/jwt/JWTService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/jwt/JWTServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/jwt/JWTServiceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/CredentialValidation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/utils/CredentialValidation.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/UserTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/UserTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupServiceImpl.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,6 +115,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/kotlin/socketRoutes" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/dtos" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/routing/routes" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/api/routes" />
@@ -330,7 +299,7 @@
       <workItem from="1717354995009" duration="15410000" />
       <workItem from="1717460080636" duration="332000" />
       <workItem from="1717460667756" duration="5773000" />
-      <workItem from="1717519226545" duration="44749000" />
+      <workItem from="1717519226545" duration="47844000" />
     </task>
     <servers />
   </component>
