@@ -1,12 +1,15 @@
 package physine.services
 
+import physine.dtos.CreateGroupDTO
+import physine.dtos.JoinGroupDTO
+import physine.dtos.LeaveGroupDTO
 import physine.models.GroupModel
-import java.util.*
+import physine.models.responces.GroupResponse
 
 interface GroupsManagerService {
-    fun createGroup(group: GroupModel): Boolean
-    fun deleteGroup(group: GroupModel): Boolean
+    fun createGroup(createGroupDTO: CreateGroupDTO): GroupResponse
+    fun deleteGroup(group: GroupModel): GroupResponse
 
-    fun addUserToGroup(groupName: String, userID: UUID): Boolean
-    fun removeUserFromGroup(groupName: String, userID: UUID): Boolean
+    fun addUserToGroup(joinGroupDTO: JoinGroupDTO): GroupResponse
+    fun removeUserFromGroup(leaveGroupDTO: LeaveGroupDTO): GroupResponse
 }

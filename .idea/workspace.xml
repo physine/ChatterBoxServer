@@ -6,8 +6,26 @@
   <component name="ChangeListManager">
     <list default="true" id="23a8178c-35ac-40f8-9588-51d919c37f80" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/db/GroupsTable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/db/GroupsTable.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/db/MapFunctions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/db/MapFunctions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dtos/GroupDTOs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dtos/GroupDTOs.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dtos/GroupRequestDTOs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dtos/GroupRequestDTOs.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dtos/UserRequestDTOs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dtos/UserRequestDTOs.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/httpRouting/routes/GroupRoutes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/httpRouting/routes/GroupRoutes.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/kion/Modules.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/kion/Modules.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/GroupModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/GroupModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/MessageModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/MessageModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/UserModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/UserModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/responces/GroupResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/responces/GroupResponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/responces/GroupResponses.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/responces/GroupResponses.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupService.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupServiceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerServiceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/CredentialValidation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/utils/CredentialValidation.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +107,7 @@
     "Gradle.UserTest.loginNotSuccessfulTest.executor": "Run",
     "Gradle.UserTest.loginTest.executor": "Run",
     "Gradle.UserTest.usernameNotAvailable.executor": "Run",
+    "Kotlin.Main.executor": "Run",
     "Kotlin.MainKt.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -129,100 +148,14 @@
       <recent name="models" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MainKt">
-    <configuration name="Tests in 'ChatterBox-ServerKt.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="UserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;UserTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="UserTest.createUserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;UserTest.createUserTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="UserTest.loginNotSuccessfulTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;UserTest.loginNotSuccessfulTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
+  <component name="RunManager" selected="Kotlin.Main">
+    <configuration name="Main" type="JetRunConfigurationType">
+      <option name="MAIN_CLASS_NAME" value="physine.MainKt" />
+      <module name="ChatterBox-ServerKt.main" />
+      <shortenClasspath name="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="physine.MainKt" />
@@ -231,30 +164,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
-      <deployment type="dockerfile">
-        <settings>
-          <option name="containerName" value="" />
-          <option name="sourceFilePath" value="Dockerfile" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Docker.Dockerfile" />
-      <item itemvalue="Gradle.Tests in 'ChatterBox-ServerKt.test'" />
-      <item itemvalue="Gradle.UserTest.loginNotSuccessfulTest" />
-      <item itemvalue="Gradle.UserTest.createUserTest" />
-      <item itemvalue="Gradle.UserTest" />
+      <item itemvalue="Kotlin.Main" />
       <item itemvalue="Kotlin.MainKt" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.UserTest" />
-        <item itemvalue="Gradle.UserTest.createUserTest" />
-        <item itemvalue="Gradle.Tests in 'ChatterBox-ServerKt.test'" />
         <item itemvalue="Kotlin.MainKt" />
-        <item itemvalue="Gradle.UserTest.loginNotSuccessfulTest" />
+        <item itemvalue="Kotlin.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -299,7 +216,7 @@
       <workItem from="1717354995009" duration="15410000" />
       <workItem from="1717460080636" duration="332000" />
       <workItem from="1717460667756" duration="5773000" />
-      <workItem from="1717519226545" duration="47844000" />
+      <workItem from="1717519226545" duration="73781000" />
     </task>
     <servers />
   </component>
@@ -312,6 +229,13 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="JetRunConfigurationType">
+        <watch expression="groups" language="kotlin" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

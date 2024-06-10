@@ -1,7 +1,6 @@
 package physine.dtos
 
 import io.ktor.server.auth.jwt.*
-import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 import java.util.*
 
@@ -36,8 +35,3 @@ data class ChangePasswordRequest(
         )
     }
 }
-
-@Serializable
-data class DeleteUserRequest(
-    @Contextual val uuid: UUID
-)

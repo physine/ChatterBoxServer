@@ -1,36 +1,27 @@
 package physine.services
 
+import ch.qos.logback.classic.Logger
+import org.slf4j.LoggerFactory
 import physine.dtos.CreateGroupDTO
 import physine.dtos.JoinGroupDTO
-import physine.models.GroupModel
+import physine.dtos.LeaveGroupDTO
 import physine.models.responces.GroupResponse
-import physine.models.responces.GroupResponses.groupCreatedResponse
-import physine.models.responces.GroupResponses.groupNameNotAvailableResponse
-import physine.models.responces.GroupResponses.groupNameNotValidResponse
-import physine.repositories.GroupRepository
-import physine.utils.CredentialValidation.validateGroupName
 
-class GroupServiceImpl(private val groupRepository: GroupRepository) : GroupService {
+class GroupServiceImpl(
+    private val groupsManagerService: GroupsManagerService
+) : GroupService {
 
-    // group pool ( addUserToGroup(groupName, userId)  )
+    val log = LoggerFactory.getLogger("app") as Logger
 
     override fun createGroup(createGroupDTO: CreateGroupDTO): GroupResponse {
-        if (!validateGroupName(createGroupDTO.groupName))
-            return groupNameNotValidResponse()
-        if(!groupRepository.isGroupNameAvailable(createGroupDTO.groupName))
-            return groupNameNotAvailableResponse()
-        groupRepository.createGroup(createGroupDTO.toModel())
-        return groupCreatedResponse()
+        return groupsManagerService.createGroup(createGroupDTO)
     }
 
     override fun joinGroup(joinGroupDTO: JoinGroupDTO): GroupResponse {
-
-        // check if user is already in group, if not add user to group
-
-        TODO("Not yet implemented")
+        return groupsManagerService.addUserToGroup(joinGroupDTO)
     }
 
-    override fun leaveGroup(group: GroupModel): GroupResponse {
-        TODO("Not yet implemented")
+    override fun leaveGroup(leaveGroupDTO: LeaveGroupDTO): GroupResponse {
+        return groupsManagerService.removeUserFromGroup(leaveGroupDTO)
     }
 }

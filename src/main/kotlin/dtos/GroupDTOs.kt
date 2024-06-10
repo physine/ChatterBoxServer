@@ -16,3 +16,13 @@ data class CreateGroupDTO(
         )
     }
 }
+
+data class JoinGroupDTO(
+    val groupId: UUID,
+    val userId: UUID
+)
+
+data class LeaveGroupDTO(
+    val groupId: UUID,
+    val userId: UUID
+)

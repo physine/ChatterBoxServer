@@ -10,6 +10,8 @@ import physine.repositories.UserRepository
 import physine.repositories.UserRepositoryImpl
 import physine.services.GroupService
 import physine.services.GroupServiceImpl
+import physine.services.GroupsManagerService
+import physine.services.GroupsManagerServiceImpl
 import physine.services.UserService
 import physine.services.UserServiceImpl
 import physine.services.jwt.JWTService
@@ -17,12 +19,15 @@ import physine.services.jwt.JWTServiceImpl
 
 val appModule = module {
     single { ChatterBox() }
+
     single { HoconApplicationConfig(ConfigFactory.load()) }
+
     single<UserRepository> { UserRepositoryImpl() }
     single<GroupRepository> { GroupRepositoryImpl() }
 
+    single<GroupsManagerService> { GroupsManagerServiceImpl(get(), get()) }
     single<JWTService> { JWTServiceImpl(get()) }
-    single<GroupService> { GroupServiceImpl(get()) }
 
+    single<GroupService> { GroupServiceImpl(get()) }
     single<UserService> { UserServiceImpl(get(), get()) }
 }

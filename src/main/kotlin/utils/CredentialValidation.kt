@@ -4,6 +4,8 @@ object CredentialValidation {
 
     private const val MAXIMUM_USERNAME_LENGTH = 16
     private const val MINIMUM_PASSWORD_LENGTH = 1
+    private const val MAXIMUM_GROUP_NAME_LENGTH = 50
+    private const val MINIMUM_GROUP_NAME_LENGTH = 2
 
     fun verifyUserCredentialFormats(username: String, password: String): Boolean {
         return true
@@ -22,6 +24,6 @@ object CredentialValidation {
     }
 
     fun validateGroupName(groupName: String): Boolean {
-        return true
+        return groupName.length in MINIMUM_GROUP_NAME_LENGTH..MAXIMUM_GROUP_NAME_LENGTH
     }
 }

@@ -37,6 +37,7 @@ To get started with this project, follow the steps below:
 TODO:
 
 - [ ] set up the websockets
+- [ ] add password option for chats groups
 - [ ] add open ssl
 - [ ] add password encryption with salting
 - [x] create some end-to-end IT tests for the User routes
