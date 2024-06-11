@@ -6,26 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="23a8178c-35ac-40f8-9588-51d919c37f80" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/db/GroupsTable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/db/GroupsTable.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/db/MapFunctions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/db/MapFunctions.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dtos/GroupDTOs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dtos/GroupDTOs.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dtos/GroupRequestDTOs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dtos/GroupRequestDTOs.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dtos/UserRequestDTOs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dtos/UserRequestDTOs.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/httpRouting/routes/GroupRoutes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/httpRouting/routes/GroupRoutes.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/kion/Modules.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/kion/Modules.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/GroupModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/GroupModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/MessageModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/MessageModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/UserModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/UserModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/responces/GroupResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/responces/GroupResponse.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/responces/GroupResponses.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/responces/GroupResponses.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepositoryImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupServiceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerServiceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/CredentialValidation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/utils/CredentialValidation.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +196,7 @@
       <workItem from="1717354995009" duration="15410000" />
       <workItem from="1717460080636" duration="332000" />
       <workItem from="1717460667756" duration="5773000" />
-      <workItem from="1717519226545" duration="73781000" />
+      <workItem from="1717519226545" duration="75641000" />
     </task>
     <servers />
   </component>

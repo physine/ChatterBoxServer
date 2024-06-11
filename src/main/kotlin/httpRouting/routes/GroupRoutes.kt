@@ -35,6 +35,8 @@ fun Application.configureGroupRoutes() {
                 return@post call.respondText(json.encodeToString(response), ContentType.Application.Json)
             }
 
+            // delete group
+
             // join group
             post("/group/join") {
                 log.info("$this /group/join 1")
