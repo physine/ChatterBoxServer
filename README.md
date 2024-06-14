@@ -36,10 +36,11 @@ To get started with this project, follow the steps below:
 
 TODO:
 
+- [ ] add tests for group end-point functionality 
 - [ ] set up the websockets
-- [ ] add password option for chats groups
 - [ ] add open ssl
 - [ ] add password encryption with salting
+- [ ] add password option for chats groups
 - [x] create some end-to-end IT tests for the User routes
 - [x] finish the user service
 - [x] make a db with an orm (may require docker to work on any pc)

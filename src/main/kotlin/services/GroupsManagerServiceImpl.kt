@@ -1,6 +1,8 @@
 package physine.services
 
+import kotlinx.serialization.encodeToString
 import physine.dtos.CreateGroupDTO
+import physine.dtos.DeleteGroupDTO
 import physine.dtos.JoinGroupDTO
 import physine.dtos.LeaveGroupDTO
 import physine.models.GroupModel
@@ -9,12 +11,16 @@ import physine.models.responces.GroupResponses.alreadyInGroupResponse
 import physine.models.responces.GroupResponses.groupCreatedResponse
 import physine.models.responces.GroupResponses.groupNameNotAvailableResponse
 import physine.models.responces.GroupResponses.groupNameNotValidResponse
+import physine.models.responces.GroupResponses.groupNotFoundResponse
+import physine.models.responces.GroupResponses.invalidGroupOperationResponse
 import physine.models.responces.GroupResponses.noSuchGroupResponse
+import physine.models.responces.GroupResponses.operationSuccessfulResponse
 import physine.models.responces.GroupResponses.userAddedToGroup
 import physine.models.responces.GroupResponses.userNotFoundResponse
 import physine.models.responces.GroupResponses.userRemovedFromGroup
 import physine.repositories.GroupRepository
 import physine.repositories.UserRepository
+import physine.routing.json
 import physine.utils.CredentialValidation.validateGroupName
 import java.util.*
 
@@ -38,8 +44,16 @@ class GroupsManagerServiceImpl(
         return groupCreatedResponse()
     }
 
-    override fun deleteGroup(group: GroupModel): GroupResponse {
-        TODO("Not yet implemented")
+    override fun deleteGroup(deleteGroupDTO: DeleteGroupDTO): GroupResponse {
+        val groupId = deleteGroupDTO.groupId
+        val userId = deleteGroupDTO.userId
+        val group = groups[groupId] ?: return groupNotFoundResponse()
+        if (group.creatorId != userId) return invalidGroupOperationResponse()
+        groups.remove(groupId)
+        // TODO: remove group from db
+        // TODO: delete group by id using repo
+        groupRepository.deleteGroup(groupId)
+        return operationSuccessfulResponse()
     }
 
     override fun addUserToGroup(joinGroupDTO: JoinGroupDTO): GroupResponse {
@@ -57,5 +71,9 @@ class GroupsManagerServiceImpl(
         group.removeMember(leaveGroupDTO.userId)
         // TODO: remove the web socket connection for this client for this chat group
         return userRemovedFromGroup()
+    }
+
+    override fun availableGroups(): String {
+        return json.encodeToString( groups.values.map { it.toSummary() } )
     }
 }

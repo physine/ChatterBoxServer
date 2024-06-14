@@ -1,6 +1,7 @@
 package physine.repositories
 
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
+import org.jetbrains.exposed.sql.deleteWhere
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.select
 import org.jetbrains.exposed.sql.selectAll
@@ -9,6 +10,7 @@ import physine.db.GroupsTable
 import physine.db.toGroupModel
 import physine.db.toLocalDateTime
 import physine.models.GroupModel
+import java.util.*
 
 class GroupRepositoryImpl : GroupRepository {
     override fun isGroupNameAvailable(groupName: String): Boolean {
@@ -25,6 +27,14 @@ class GroupRepositoryImpl : GroupRepository {
                 it[creatorId] = group.creatorId
                 it[groupName] = group.groupName
                 it[timestamp] = group.timestamp.toLocalDateTime()
+            }
+        }
+    }
+
+    override fun deleteGroup(groupId: UUID) {
+        transaction {
+            GroupsTable.deleteWhere {
+                GroupsTable.groupId eq groupId
             }
         }
     }

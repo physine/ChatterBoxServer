@@ -1,7 +1,6 @@
 package physine.dtos
 
 import io.ktor.server.auth.jwt.*
-import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 import java.util.*
 
@@ -17,7 +16,7 @@ data class CreateGroupRequest(val groupName: String) {
 
 @Serializable
 data class JoinGroupRequest(
-    @Contextual val groupId: String,
+    val groupId: String,
 ){
     fun toDTO(principal: JWTPrincipal): JoinGroupDTO {
         return JoinGroupDTO(
@@ -29,10 +28,22 @@ data class JoinGroupRequest(
 
 @Serializable
 data class LeaveGroupRequest(
-    @Contextual val groupId: String
+    val groupId: String
 ){
     fun toDTO(principal: JWTPrincipal): LeaveGroupDTO {
         return LeaveGroupDTO(
+            groupId = UUID.fromString(groupId),
+            userId = UUID.fromString(principal.payload.getClaim("uuid").asString())
+        )
+    }
+}
+
+@Serializable
+data class DeleteGroupRequest(
+    val groupId: String
+){
+    fun toDTO(principal: JWTPrincipal): DeleteGroupDTO {
+        return DeleteGroupDTO(
             groupId = UUID.fromString(groupId),
             userId = UUID.fromString(principal.payload.getClaim("uuid").asString())
         )

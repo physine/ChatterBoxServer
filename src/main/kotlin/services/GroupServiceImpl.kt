@@ -3,6 +3,7 @@ package physine.services
 import ch.qos.logback.classic.Logger
 import org.slf4j.LoggerFactory
 import physine.dtos.CreateGroupDTO
+import physine.dtos.DeleteGroupDTO
 import physine.dtos.JoinGroupDTO
 import physine.dtos.LeaveGroupDTO
 import physine.models.responces.GroupResponse
@@ -17,11 +18,19 @@ class GroupServiceImpl(
         return groupsManagerService.createGroup(createGroupDTO)
     }
 
+    override fun deleteGroup(deleteGroupDTO: DeleteGroupDTO): GroupResponse {
+        return groupsManagerService.deleteGroup(deleteGroupDTO)
+    }
+
     override fun joinGroup(joinGroupDTO: JoinGroupDTO): GroupResponse {
         return groupsManagerService.addUserToGroup(joinGroupDTO)
     }
 
     override fun leaveGroup(leaveGroupDTO: LeaveGroupDTO): GroupResponse {
         return groupsManagerService.removeUserFromGroup(leaveGroupDTO)
+    }
+
+    override fun groupsListing(): String {
+        return groupsManagerService.availableGroups()
     }
 }

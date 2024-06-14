@@ -12,6 +12,7 @@ import kotlinx.serialization.encodeToString
 import org.koin.ktor.ext.inject
 import org.slf4j.LoggerFactory
 import physine.dtos.CreateGroupRequest
+import physine.dtos.DeleteGroupRequest
 import physine.dtos.JoinGroupRequest
 import physine.dtos.LeaveGroupRequest
 import physine.routing.json
@@ -36,10 +37,18 @@ fun Application.configureGroupRoutes() {
             }
 
             // delete group
+            post("/group/delete") {
+                val principal = call.principal<JWTPrincipal>()
+                    ?: return@post call.respond(HttpStatusCode.Unauthorized, "Invalid token")
+                val deleteGroupRequest = call.receive<DeleteGroupRequest>()
+                val deleteGroupDTO = deleteGroupRequest.toDTO(principal)
+                val response = groupService.deleteGroup(deleteGroupDTO)
+                call.response.status(HttpStatusCode(response.statusCode, response.message))
+                return@post call.respondText(json.encodeToString(response), ContentType.Application.Json)
+            }
 
             // join group
             post("/group/join") {
-                log.info("$this /group/join 1")
                 val principal = call.principal<JWTPrincipal>()
                     ?: return@post call.respond(HttpStatusCode.Unauthorized, "Invalid token")
                 val joinGroupRequest = call.receive<JoinGroupRequest>()
@@ -51,7 +60,6 @@ fun Application.configureGroupRoutes() {
 
             // leave group
             post("/group/leave") {
-                log.info("$this /group/leave 1")
                 val principal = call.principal<JWTPrincipal>()
                     ?: return@post call.respond(HttpStatusCode.Unauthorized, "Invalid token")
                 val leaveGroupRequest = call.receive<LeaveGroupRequest>()
@@ -59,6 +67,12 @@ fun Application.configureGroupRoutes() {
                 val response = groupService.leaveGroup(leaveGroupDTO)
                 call.response.status(HttpStatusCode(response.statusCode, response.message))
                 return@post call.respondText(json.encodeToString(response), ContentType.Application.Json)
+            }
+
+            // get group information
+            get("/group/listings") {
+                val listings = groupService.groupsListing()
+                return@get call.respondText(listings, ContentType.Application.Json)
             }
         }
     }

@@ -48,12 +48,33 @@ object GroupResponses {
     }
     fun userAddedToGroup(): GroupResponse {
         return GroupResponse(
-            message = "User added to group.",
+            message = "Joined group.",
         )
     }
     fun userRemovedFromGroup(): GroupResponse {
         return GroupResponse(
-            message = "User removed from group."
+            message = "Left group."
+        )
+    }
+    fun groupNotFoundResponse(): GroupResponse {
+        return GroupResponse(
+            success = false,
+            statusCode = 400,
+            message = "Group not found."
+        )
+    }
+    fun invalidGroupOperationResponse(): GroupResponse {
+        return GroupResponse(
+            success = false,
+            statusCode = 400,
+            message = "Invalid group operations. You need to be the creator a group to delete it."
+        )
+    }
+    fun operationSuccessfulResponse(): GroupResponse {
+        return GroupResponse(
+            success = true,
+            statusCode = 200,
+            message = "Operation successful."
         )
     }
 }

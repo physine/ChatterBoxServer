@@ -26,3 +26,15 @@ data class LeaveGroupDTO(
     val groupId: UUID,
     val userId: UUID
 )
+
+data class DeleteGroupDTO(
+    val groupId: UUID,
+    val userId: UUID
+){
+//    fun toModel(): GroupModel {
+//        return GroupModel(
+//            groupId = UUID.fromString(groupId),
+//            userId = userId
+//        )
+//    }
+}
