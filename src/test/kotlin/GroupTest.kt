@@ -88,18 +88,23 @@ class GroupTest {
         assertEquals("Left group.", responseBody.message)
     }
 
-    private fun leaveGroup(id: String): HttpResponse<String> {
-        return doPostRequest("$url/leave", mapOf("groupId" to id), jwt)
-    }
-
-    @Test
-    fun getGroupListings(){
-
-    }
-
     @Test
     fun deleteGroup(){
+        var response = createGroup("test_group")
+        var jsonBodyStr = response.body().toString()
+        var bodyJson = objectMapper.readValue(jsonBodyStr, GroupResponse::class.java)
 
+        assertEquals("Group created.", bodyJson.message)
+
+        response = doDeleteRequest("$url/delete", mapOf("groupId" to getGroupId()), jwt)
+        jsonBodyStr = response.body().toString()
+        bodyJson = objectMapper.readValue(jsonBodyStr, GroupResponse::class.java)
+
+        assertEquals("Operation successful.", bodyJson.message)
+    }
+
+    private fun leaveGroup(id: String): HttpResponse<String> {
+        return doPostRequest("$url/leave", mapOf("groupId" to id), jwt)
     }
 
     private fun getGroupId(): String {

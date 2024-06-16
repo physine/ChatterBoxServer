@@ -10,8 +10,8 @@ import physine.repositories.UserRepository
 import physine.repositories.UserRepositoryImpl
 import physine.services.GroupService
 import physine.services.GroupServiceImpl
-import physine.services.GroupsManagerService
-import physine.services.GroupsManagerServiceImpl
+import physine.services.GroupsManager
+import physine.services.GroupsManagerImpl
 import physine.services.UserService
 import physine.services.UserServiceImpl
 import physine.services.jwt.JWTService
@@ -25,7 +25,7 @@ val appModule = module {
     single<UserRepository> { UserRepositoryImpl() }
     single<GroupRepository> { GroupRepositoryImpl() }
 
-    single<GroupsManagerService> { GroupsManagerServiceImpl(get(), get()) }
+    single<GroupsManager> { GroupsManagerImpl(get(), get()) }
     single<JWTService> { JWTServiceImpl(get()) }
 
     single<GroupService> { GroupServiceImpl(get()) }

@@ -2,7 +2,7 @@ package physine.configure
 
 import io.ktor.server.application.*
 import physine.httpRouting.routes.configureGroupRoutes
-import physine.routing.routes.configureSocketRoutes
+import physine.socketRoutes.configureSocketRoutes
 import physine.routing.routes.configureUserRoutes
 
 fun Application.module() {

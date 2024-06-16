@@ -37,14 +37,14 @@ fun Application.configureGroupRoutes() {
             }
 
             // delete group
-            post("/group/delete") {
+            delete("/group/delete") {
                 val principal = call.principal<JWTPrincipal>()
-                    ?: return@post call.respond(HttpStatusCode.Unauthorized, "Invalid token")
+                    ?: return@delete call.respond(HttpStatusCode.Unauthorized, "Invalid token")
                 val deleteGroupRequest = call.receive<DeleteGroupRequest>()
                 val deleteGroupDTO = deleteGroupRequest.toDTO(principal)
                 val response = groupService.deleteGroup(deleteGroupDTO)
                 call.response.status(HttpStatusCode(response.statusCode, response.message))
-                return@post call.respondText(json.encodeToString(response), ContentType.Application.Json)
+                return@delete call.respondText(json.encodeToString(response), ContentType.Application.Json)
             }
 
             // join group

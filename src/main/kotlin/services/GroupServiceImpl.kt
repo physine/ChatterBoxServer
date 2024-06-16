@@ -9,28 +9,28 @@ import physine.dtos.LeaveGroupDTO
 import physine.models.responces.GroupResponse
 
 class GroupServiceImpl(
-    private val groupsManagerService: GroupsManagerService
+    private val groupsManager: GroupsManager
 ) : GroupService {
 
     val log = LoggerFactory.getLogger("app") as Logger
 
     override fun createGroup(createGroupDTO: CreateGroupDTO): GroupResponse {
-        return groupsManagerService.createGroup(createGroupDTO)
+        return groupsManager.createGroup(createGroupDTO)
     }
 
     override fun deleteGroup(deleteGroupDTO: DeleteGroupDTO): GroupResponse {
-        return groupsManagerService.deleteGroup(deleteGroupDTO)
+        return groupsManager.deleteGroup(deleteGroupDTO)
     }
 
     override fun joinGroup(joinGroupDTO: JoinGroupDTO): GroupResponse {
-        return groupsManagerService.addUserToGroup(joinGroupDTO)
+        return groupsManager.addUserToGroup(joinGroupDTO)
     }
 
     override fun leaveGroup(leaveGroupDTO: LeaveGroupDTO): GroupResponse {
-        return groupsManagerService.removeUserFromGroup(leaveGroupDTO)
+        return groupsManager.removeUserFromGroup(leaveGroupDTO)
     }
 
     override fun groupsListing(): String {
-        return groupsManagerService.availableGroups()
+        return groupsManager.availableGroups()
     }
 }

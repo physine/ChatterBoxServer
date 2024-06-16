@@ -1,4 +1,4 @@
-package physine.routing.routes
+package physine.socketRoutes
 
 import ch.qos.logback.classic.Logger
 import io.ktor.http.*

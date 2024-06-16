@@ -44,4 +44,16 @@ class JWTServiceImpl(config: HoconApplicationConfig) : JWTService {
             false
         }
     }
+
+    override fun getUserIdFromToken(token: String): UUID {
+        val verifier = generateVerifier()
+        val decodedJWT = verifier.verify(token)
+        return UUID.fromString(decodedJWT.getClaim("uuid").asString())
+    }
+
+    override fun getUsernameFromToken(token: String): String {
+        val verifier = generateVerifier()
+        val decodedJWT = verifier.verify(token)
+        return decodedJWT.getClaim("username").asString()
+    }
 }

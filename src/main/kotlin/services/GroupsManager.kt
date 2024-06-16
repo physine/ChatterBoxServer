@@ -6,7 +6,7 @@ import physine.dtos.JoinGroupDTO
 import physine.dtos.LeaveGroupDTO
 import physine.models.responces.GroupResponse
 
-interface GroupsManagerService {
+interface GroupsManager {
     fun createGroup(createGroupDTO: CreateGroupDTO): GroupResponse
     fun deleteGroup(deleteGroupDTO: DeleteGroupDTO): GroupResponse
     fun addUserToGroup(joinGroupDTO: JoinGroupDTO): GroupResponse

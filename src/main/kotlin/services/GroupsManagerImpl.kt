@@ -24,10 +24,11 @@ import physine.routing.json
 import physine.utils.CredentialValidation.validateGroupName
 import java.util.*
 
-class GroupsManagerServiceImpl(
+class GroupsManagerImpl(
     private val userRepository: UserRepository,
-    private val groupRepository: GroupRepository
-) : GroupsManagerService {
+    private val groupRepository: GroupRepository,
+    private val connectionManager: ConnectionManager,
+) : GroupsManager {
 
     private val groups: MutableMap<UUID, GroupModel> = mutableMapOf()
 

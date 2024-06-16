@@ -5,22 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a8178c-35ac-40f8-9588-51d919c37f80" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/GroupTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/Utils.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/services/ConnectionManager.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/services/ConnectionManagerImpl.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dtos/GroupDTOs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dtos/GroupDTOs.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dtos/GroupRequestDTOs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dtos/GroupRequestDTOs.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/configure/Configure.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/configure/Configure.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/httpRouting/routes/GroupRoutes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/httpRouting/routes/GroupRoutes.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/GroupModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/GroupModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/responces/GroupResponses.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/responces/GroupResponses.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepositoryImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/kion/Modules.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/kion/Modules.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupServiceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerServiceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/UserTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/UserTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/jwt/JWTService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/jwt/JWTService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/jwt/JWTServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/jwt/JWTServiceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/socketRoutes/SocketRoutes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/socketRoutes/SocketRoutes.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/GroupTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/GroupTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/Utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/Utils.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,9 +61,9 @@
         <option value="Kotlin Object" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Kotlin File" />
         <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
-        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -96,10 +94,13 @@
     "Docker.Dockerfile.executor": "Run",
     "Gradle.Build ChatterBox-ServerKt.executor": "Run",
     "Gradle.Download Sources.executor": "Run",
-    "Gradle.GroupTest.createGroup.executor": "Debug",
+    "Gradle.GroupTest.createGroup.executor": "Run",
     "Gradle.GroupTest.createGroups.executor": "Run",
+    "Gradle.GroupTest.deleteGroup.executor": "Run",
     "Gradle.GroupTest.executor": "Debug",
-    "Gradle.GroupTest.joinGroup.executor": "Debug",
+    "Gradle.GroupTest.joinGroup.executor": "Run",
+    "Gradle.GroupTest.joinGroupTest.executor": "Run",
+    "Gradle.GroupTest.leaveGroup.executor": "Run",
     "Gradle.Tests in 'ChatterBox-ServerKt.test'.executor": "Run",
     "Gradle.UserTest.createUserTest.executor": "Run",
     "Gradle.UserTest.executor": "Run",
@@ -147,8 +148,8 @@
       <recent name="models" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.GroupTest.joinGroup">
-    <configuration name="GroupTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.Tests in 'ChatterBox-ServerKt.test'">
+    <configuration name="GroupTest.deleteGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -161,31 +162,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;GroupTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="GroupTest.createGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;GroupTest.createGroup&quot;" />
+            <option value="&quot;GroupTest.deleteGroup&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -220,7 +197,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="UserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GroupTest.joinGroupTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -233,7 +210,53 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;UserTest&quot;" />
+            <option value="&quot;GroupTest.joinGroupTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="GroupTest.leaveGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;GroupTest.leaveGroup&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tests in 'ChatterBox-ServerKt.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -252,28 +275,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="physine.MainKt" />
-      <module name="ChatterBox-ServerKt.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="Gradle.GroupTest" />
-      <item itemvalue="Gradle.GroupTest.createGroup" />
+      <item itemvalue="Gradle.GroupTest.deleteGroup" />
       <item itemvalue="Gradle.GroupTest.joinGroup" />
-      <item itemvalue="Gradle.UserTest" />
+      <item itemvalue="Gradle.GroupTest.joinGroupTest" />
+      <item itemvalue="Gradle.GroupTest.leaveGroup" />
+      <item itemvalue="Gradle.Tests in 'ChatterBox-ServerKt.test'" />
       <item itemvalue="Kotlin.Main" />
-      <item itemvalue="Kotlin.MainKt" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Tests in 'ChatterBox-ServerKt.test'" />
+        <item itemvalue="Gradle.GroupTest.deleteGroup" />
+        <item itemvalue="Gradle.GroupTest.leaveGroup" />
+        <item itemvalue="Gradle.GroupTest.joinGroupTest" />
         <item itemvalue="Gradle.GroupTest.joinGroup" />
-        <item itemvalue="Gradle.GroupTest.createGroup" />
-        <item itemvalue="Gradle.GroupTest" />
-        <item itemvalue="Kotlin.MainKt" />
-        <item itemvalue="Gradle.UserTest" />
       </list>
     </recent_temporary>
   </component>
@@ -318,7 +334,7 @@
       <workItem from="1717354995009" duration="15410000" />
       <workItem from="1717460080636" duration="332000" />
       <workItem from="1717460667756" duration="5773000" />
-      <workItem from="1717519226545" duration="104838000" />
+      <workItem from="1717519226545" duration="120355000" />
     </task>
     <servers />
   </component>
@@ -333,15 +349,6 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/kotlin/GroupTest.kt</url>
-          <line>65</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="JetRunConfigurationType">
         <watch expression="groups" language="kotlin" />

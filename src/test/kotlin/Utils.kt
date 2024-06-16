@@ -52,6 +52,23 @@ fun doGetRequest(url: String, jwt: String? = null): HttpResponse<String> {
     return client.send(request, HttpResponse.BodyHandlers.ofString())
 }
 
+fun doDeleteRequest(url: String, body: Map<String, String>? = null, jwt: String? = null): HttpResponse<String> {
+    val requestBody = body?.let { objectMapper.writeValueAsString(it) } ?: ""
+    val client = HttpClient.newBuilder().build()
+
+    val requestBuilder = HttpRequest.newBuilder()
+        .uri(URI.create(url))
+        .header("Content-Type", "application/json")
+        .method("DELETE", HttpRequest.BodyPublishers.ofString(requestBody))
+
+    jwt?.let {
+        requestBuilder.header("Authorization", "Bearer $it")
+    }
+
+    val request = requestBuilder.build()
+    return client.send(request, HttpResponse.BodyHandlers.ofString())
+}
+
 fun startTestEnvironmentConfig(){
     System.setProperty("USE_TEST_DB", "true")
     dropAllRows("users")
