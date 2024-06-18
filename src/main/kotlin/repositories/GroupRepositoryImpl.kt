@@ -7,9 +7,11 @@ import org.jetbrains.exposed.sql.select
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 import physine.db.GroupsTable
+import physine.db.MessagesTable
 import physine.db.toGroupModel
 import physine.db.toLocalDateTime
 import physine.models.GroupModel
+import physine.models.MessageModel
 import java.util.*
 
 class GroupRepositoryImpl : GroupRepository {
@@ -36,12 +38,21 @@ class GroupRepositoryImpl : GroupRepository {
             GroupsTable.deleteWhere {
                 GroupsTable.groupId eq groupId
             }
+            // TODO: also delete all messages for the group
         }
     }
 
     override fun getAll(): List<GroupModel> {
         return transaction {
             GroupsTable.selectAll().map { toGroupModel(it) }
+        }
+    }
+
+    override fun saveMessage(message: MessageModel) {
+        transaction {
+            MessagesTable.insert {
+
+            }
         }
     }
 }

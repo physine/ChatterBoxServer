@@ -5,20 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a8178c-35ac-40f8-9588-51d919c37f80" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/services/ConnectionManager.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/services/ConnectionManagerImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dtos/MessageDTO.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/configure/Configure.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/configure/Configure.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/httpRouting/routes/GroupRoutes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/httpRouting/routes/GroupRoutes.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/kion/Modules.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/kion/Modules.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/models/GroupModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/models/GroupModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repositories/GroupRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/ConnectionManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/ConnectionManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/ConnectionManagerImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/ConnectionManagerImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupService.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupServiceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/jwt/JWTService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/jwt/JWTService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/jwt/JWTServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/jwt/JWTServiceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/services/GroupsManagerImpl.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/socketRoutes/SocketRoutes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/socketRoutes/SocketRoutes.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/GroupTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/GroupTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/Utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/Utils.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +55,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Data Class" />
         <option value="Dockerfile" />
         <option value="Kotlin Object" />
         <option value="Interface" />
@@ -64,6 +62,7 @@
         <option value="Kotlin File" />
         <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
+        <option value="Kotlin Data Class" />
       </list>
     </option>
   </component>
@@ -123,7 +122,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.48156682",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Kotlin",
+    "settings.editor.selected.configurable": "terminal",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -334,7 +333,7 @@
       <workItem from="1717354995009" duration="15410000" />
       <workItem from="1717460080636" duration="332000" />
       <workItem from="1717460667756" duration="5773000" />
-      <workItem from="1717519226545" duration="120355000" />
+      <workItem from="1717519226545" duration="131752000" />
     </task>
     <servers />
   </component>

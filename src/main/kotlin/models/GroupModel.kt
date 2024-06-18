@@ -38,6 +38,10 @@ data class GroupModel(
         members.remove(userId)
     }
 
+    fun addMessage(message: MessageModel) {
+        messages.add(message)
+    }
+
     fun toSummary(): GroupSummary {
         return GroupSummary(
             id = this.groupId,

@@ -4,7 +4,9 @@ import kotlinx.serialization.encodeToString
 import physine.dtos.CreateGroupDTO
 import physine.dtos.DeleteGroupDTO
 import physine.dtos.JoinGroupDTO
+import physine.dtos.JoinGroupSockDTO
 import physine.dtos.LeaveGroupDTO
+import physine.dtos.MessageDTO
 import physine.models.GroupModel
 import physine.models.responces.GroupResponse
 import physine.models.responces.GroupResponses.alreadyInGroupResponse
@@ -51,8 +53,9 @@ class GroupsManagerImpl(
         val group = groups[groupId] ?: return groupNotFoundResponse()
         if (group.creatorId != userId) return invalidGroupOperationResponse()
         groups.remove(groupId)
-        // TODO: remove group from db
-        // TODO: delete group by id using repo
+        // TODO: delete group from db
+        // TODO: delete all messages of group from db
+        // TODO: end all active web socket connections for the group
         groupRepository.deleteGroup(groupId)
         return operationSuccessfulResponse()
     }
@@ -66,6 +69,15 @@ class GroupsManagerImpl(
         return userAddedToGroup()
     }
 
+    override fun addUserToGroup(joinGroupSockDTO: JoinGroupSockDTO): GroupResponse {
+        val group = groups[joinGroupSockDTO.groupId] ?: return noSuchGroupResponse()
+        if(group.containsMember(joinGroupSockDTO.userId)) return alreadyInGroupResponse()
+        val user = userRepository.getUserById(joinGroupSockDTO.userId) ?: return userNotFoundResponse()
+        group.addMember(user)
+        connectionManager.addUserToGroup(joinGroupSockDTO)
+        return userAddedToGroup()
+    }
+
     override fun removeUserFromGroup(leaveGroupDTO: LeaveGroupDTO): GroupResponse {
         val group = groups[leaveGroupDTO.groupId] ?: return noSuchGroupResponse()
         if(!group.containsMember(leaveGroupDTO.userId)) return userNotFoundResponse()
@@ -76,5 +88,21 @@ class GroupsManagerImpl(
 
     override fun availableGroups(): String {
         return json.encodeToString( groups.values.map { it.toSummary() } )
+    }
+
+    override fun incomingMessage(messageDTO: MessageDTO): GroupResponse {
+        // TODO: check if valid message (not empty, etc)
+
+        // TODO: check if group exits
+        val group = groups[messageDTO.groupId] ?: return noSuchGroupResponse()
+
+        // TODO: add message to group messages
+        group.addMessage(messageDTO.toModel())
+
+        // TODO: add message to messages db
+
+        // TODO: broadcast
+        connectionManager.broadcastMessage(messageDTO)
+        return operationSuccessfulResponse()
     }
 }

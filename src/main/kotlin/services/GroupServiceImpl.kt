@@ -5,7 +5,9 @@ import org.slf4j.LoggerFactory
 import physine.dtos.CreateGroupDTO
 import physine.dtos.DeleteGroupDTO
 import physine.dtos.JoinGroupDTO
+import physine.dtos.JoinGroupSockDTO
 import physine.dtos.LeaveGroupDTO
+import physine.dtos.MessageDTO
 import physine.models.responces.GroupResponse
 
 class GroupServiceImpl(
@@ -26,11 +28,19 @@ class GroupServiceImpl(
         return groupsManager.addUserToGroup(joinGroupDTO)
     }
 
+    override fun joinGroup(joinGroupSockDTO: JoinGroupSockDTO) {
+        groupsManager.addUserToGroup(joinGroupSockDTO)
+    }
+
     override fun leaveGroup(leaveGroupDTO: LeaveGroupDTO): GroupResponse {
         return groupsManager.removeUserFromGroup(leaveGroupDTO)
     }
 
     override fun groupsListing(): String {
         return groupsManager.availableGroups()
+    }
+
+    override fun incomingMessage(messageDTO: MessageDTO) {
+        groupsManager.incomingMessage(messageDTO)
     }
 }
